@@ -1,0 +1,967 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Session1_TaskMaster_PolivanovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Analizator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="InsuranceCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="INN" Type="int" />
+          <Property Name="BIC" Type="int" />
+          <Property Name="RS" Type="int" />
+        </EntityType>
+        <EntityType Name="InsurancePoliceType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="InsurancePolicy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="int" />
+          <Property Name="IdType" Type="int" />
+        </EntityType>
+        <EntityType Name="Invoicing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdInsuranceCompany" Type="int" />
+          <Property Name="IdUser" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="IdOrderComplate" Type="int" />
+        </EntityType>
+        <EntityType Name="LabServices">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="60" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="DayComplate" Type="int" />
+          <Property Name="AverageDeviation" Type="int" />
+        </EntityType>
+        <EntityType Name="OrderComplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdOrder" Type="int" />
+          <Property Name="IdUser" Type="int" />
+          <Property Name="DateComplate" Type="date" />
+        </EntityType>
+        <EntityType Name="OrderInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdLabServices" Type="int" />
+          <Property Name="Result" Type="float" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Accepted" Type="bit" />
+          <Property Name="IdStatus" Type="int" />
+          <Property Name="IdAnalizator" Type="int" />
+          <Property Name="IdPacient" Type="int" />
+          <Property Name="Barcode" Type="int" />
+        </EntityType>
+        <EntityType Name="Pacient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="EIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="PassportS" Type="int" />
+          <Property Name="PassportN" Type="int" />
+          <Property Name="Birthdate" Type="date" />
+          <Property Name="DateEnter" Type="date" />
+          <Property Name="DateExit" Type="date" />
+          <Property Name="Attempt" Type="bit" />
+          <Property Name="IdInsurancePolicy" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserLab">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataEnter" Type="date" />
+          <Property Name="DataExit" Type="date" />
+          <Property Name="IdRole" Type="int" />
+          <Property Name="Attempt" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserLabServices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdLabServices" Type="int" />
+          <Property Name="IdUser" Type="int" />
+        </EntityType>
+        <Association Name="FK_InsurancePolicy_InsurancePoliceType">
+          <End Role="InsurancePoliceType" Type="Self.InsurancePoliceType" Multiplicity="0..1" />
+          <End Role="InsurancePolicy" Type="Self.InsurancePolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsurancePoliceType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InsurancePolicy">
+              <PropertyRef Name="IdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoicing_InsuranceCompany">
+          <End Role="InsuranceCompany" Type="Self.InsuranceCompany" Multiplicity="0..1" />
+          <End Role="Invoicing" Type="Self.Invoicing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsuranceCompany">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoicing">
+              <PropertyRef Name="IdInsuranceCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoicing_UserLab">
+          <End Role="UserLab" Type="Self.UserLab" Multiplicity="0..1" />
+          <End Role="Invoicing" Type="Self.Invoicing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserLab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoicing">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderComplate_OrderInfo">
+          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="0..1" />
+          <End Role="OrderComplate" Type="Self.OrderComplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderComplate">
+              <PropertyRef Name="IdOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderComplate_UserLab">
+          <End Role="UserLab" Type="Self.UserLab" Multiplicity="0..1" />
+          <End Role="OrderComplate" Type="Self.OrderComplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserLab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderComplate">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderInfo_Analizator1">
+          <End Role="Analizator" Type="Self.Analizator" Multiplicity="0..1" />
+          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Analizator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderInfo">
+              <PropertyRef Name="IdAnalizator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderInfo_LabServices">
+          <End Role="LabServices" Type="Self.LabServices" Multiplicity="0..1" />
+          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LabServices">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="OrderInfo">
+              <PropertyRef Name="IdLabServices" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderInfo_Pacient1">
+          <End Role="Pacient" Type="Self.Pacient" Multiplicity="0..1" />
+          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderInfo">
+              <PropertyRef Name="IdPacient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderInfo_Status1">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderInfo">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pacient_InsurancePolicy">
+          <End Role="InsurancePolicy" Type="Self.InsurancePolicy" Multiplicity="0..1" />
+          <End Role="Pacient" Type="Self.Pacient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsurancePolicy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pacient">
+              <PropertyRef Name="IdInsurancePolicy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLab_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="UserLab" Type="Self.UserLab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserLab">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLabServices_LabServices1">
+          <End Role="LabServices" Type="Self.LabServices" Multiplicity="0..1" />
+          <End Role="UserLabServices" Type="Self.UserLabServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LabServices">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="UserLabServices">
+              <PropertyRef Name="IdLabServices" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLabServices_UserLab">
+          <End Role="UserLab" Type="Self.UserLab" Multiplicity="0..1" />
+          <End Role="UserLabServices" Type="Self.UserLabServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserLab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserLabServices">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Session1_TaskMaster_PolivanovModelContainer">
+          <EntitySet Name="Analizator" EntityType="Self.Analizator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InsuranceCompany" EntityType="Self.InsuranceCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InsurancePoliceType" EntityType="Self.InsurancePoliceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InsurancePolicy" EntityType="Self.InsurancePolicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoicing" EntityType="Self.Invoicing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LabServices" EntityType="Self.LabServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderComplate" EntityType="Self.OrderComplate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderInfo" EntityType="Self.OrderInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLab" EntityType="Self.UserLab" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLabServices" EntityType="Self.UserLabServices" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_InsurancePolicy_InsurancePoliceType" Association="Self.FK_InsurancePolicy_InsurancePoliceType">
+            <End Role="InsurancePoliceType" EntitySet="InsurancePoliceType" />
+            <End Role="InsurancePolicy" EntitySet="InsurancePolicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoicing_InsuranceCompany" Association="Self.FK_Invoicing_InsuranceCompany">
+            <End Role="InsuranceCompany" EntitySet="InsuranceCompany" />
+            <End Role="Invoicing" EntitySet="Invoicing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoicing_UserLab" Association="Self.FK_Invoicing_UserLab">
+            <End Role="UserLab" EntitySet="UserLab" />
+            <End Role="Invoicing" EntitySet="Invoicing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderComplate_OrderInfo" Association="Self.FK_OrderComplate_OrderInfo">
+            <End Role="OrderInfo" EntitySet="OrderInfo" />
+            <End Role="OrderComplate" EntitySet="OrderComplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderComplate_UserLab" Association="Self.FK_OrderComplate_UserLab">
+            <End Role="UserLab" EntitySet="UserLab" />
+            <End Role="OrderComplate" EntitySet="OrderComplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderInfo_Analizator1" Association="Self.FK_OrderInfo_Analizator1">
+            <End Role="Analizator" EntitySet="Analizator" />
+            <End Role="OrderInfo" EntitySet="OrderInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderInfo_LabServices" Association="Self.FK_OrderInfo_LabServices">
+            <End Role="LabServices" EntitySet="LabServices" />
+            <End Role="OrderInfo" EntitySet="OrderInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderInfo_Pacient1" Association="Self.FK_OrderInfo_Pacient1">
+            <End Role="Pacient" EntitySet="Pacient" />
+            <End Role="OrderInfo" EntitySet="OrderInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderInfo_Status1" Association="Self.FK_OrderInfo_Status1">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="OrderInfo" EntitySet="OrderInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pacient_InsurancePolicy" Association="Self.FK_Pacient_InsurancePolicy">
+            <End Role="InsurancePolicy" EntitySet="InsurancePolicy" />
+            <End Role="Pacient" EntitySet="Pacient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLab_Role" Association="Self.FK_UserLab_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UserLab" EntitySet="UserLab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLabServices_LabServices1" Association="Self.FK_UserLabServices_LabServices1">
+            <End Role="LabServices" EntitySet="LabServices" />
+            <End Role="UserLabServices" EntitySet="UserLabServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLabServices_UserLab" Association="Self.FK_UserLabServices_UserLab">
+            <End Role="UserLab" EntitySet="UserLab" />
+            <End Role="UserLabServices" EntitySet="UserLabServices" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Session1_TaskMaster_PolivanovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Session1_TaskMaster_PolivanovEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Analizator" EntityType="Session1_TaskMaster_PolivanovModel.Analizator" />
+          <EntitySet Name="InsuranceCompany" EntityType="Session1_TaskMaster_PolivanovModel.InsuranceCompany" />
+          <EntitySet Name="InsurancePoliceType" EntityType="Session1_TaskMaster_PolivanovModel.InsurancePoliceType" />
+          <EntitySet Name="InsurancePolicy" EntityType="Session1_TaskMaster_PolivanovModel.InsurancePolicy" />
+          <EntitySet Name="Invoicing" EntityType="Session1_TaskMaster_PolivanovModel.Invoicing" />
+          <EntitySet Name="LabServices" EntityType="Session1_TaskMaster_PolivanovModel.LabServices" />
+          <EntitySet Name="OrderComplate" EntityType="Session1_TaskMaster_PolivanovModel.OrderComplate" />
+          <EntitySet Name="OrderInfo" EntityType="Session1_TaskMaster_PolivanovModel.OrderInfo" />
+          <EntitySet Name="Pacient" EntityType="Session1_TaskMaster_PolivanovModel.Pacient" />
+          <EntitySet Name="Role" EntityType="Session1_TaskMaster_PolivanovModel.Role" />
+          <EntitySet Name="Status" EntityType="Session1_TaskMaster_PolivanovModel.Status" />
+          <EntitySet Name="sysdiagrams" EntityType="Session1_TaskMaster_PolivanovModel.sysdiagrams" />
+          <EntitySet Name="UserLab" EntityType="Session1_TaskMaster_PolivanovModel.UserLab" />
+          <EntitySet Name="UserLabServices" EntityType="Session1_TaskMaster_PolivanovModel.UserLabServices" />
+          <AssociationSet Name="FK_OrderInfo_Analizator1" Association="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Analizator1">
+            <End Role="Analizator" EntitySet="Analizator" />
+            <End Role="OrderInfo" EntitySet="OrderInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoicing_InsuranceCompany" Association="Session1_TaskMaster_PolivanovModel.FK_Invoicing_InsuranceCompany">
+            <End Role="InsuranceCompany" EntitySet="InsuranceCompany" />
+            <End Role="Invoicing" EntitySet="Invoicing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InsurancePolicy_InsurancePoliceType" Association="Session1_TaskMaster_PolivanovModel.FK_InsurancePolicy_InsurancePoliceType">
+            <End Role="InsurancePoliceType" EntitySet="InsurancePoliceType" />
+            <End Role="InsurancePolicy" EntitySet="InsurancePolicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pacient_InsurancePolicy" Association="Session1_TaskMaster_PolivanovModel.FK_Pacient_InsurancePolicy">
+            <End Role="InsurancePolicy" EntitySet="InsurancePolicy" />
+            <End Role="Pacient" EntitySet="Pacient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoicing_UserLab" Association="Session1_TaskMaster_PolivanovModel.FK_Invoicing_UserLab">
+            <End Role="UserLab" EntitySet="UserLab" />
+            <End Role="Invoicing" EntitySet="Invoicing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderInfo_LabServices" Association="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_LabServices">
+            <End Role="LabServices" EntitySet="LabServices" />
+            <End Role="OrderInfo" EntitySet="OrderInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLabServices_LabServices1" Association="Session1_TaskMaster_PolivanovModel.FK_UserLabServices_LabServices1">
+            <End Role="LabServices" EntitySet="LabServices" />
+            <End Role="UserLabServices" EntitySet="UserLabServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderComplate_OrderInfo" Association="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_OrderInfo">
+            <End Role="OrderInfo" EntitySet="OrderInfo" />
+            <End Role="OrderComplate" EntitySet="OrderComplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderComplate_UserLab" Association="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_UserLab">
+            <End Role="UserLab" EntitySet="UserLab" />
+            <End Role="OrderComplate" EntitySet="OrderComplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderInfo_Pacient1" Association="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Pacient1">
+            <End Role="Pacient" EntitySet="Pacient" />
+            <End Role="OrderInfo" EntitySet="OrderInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderInfo_Status1" Association="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Status1">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="OrderInfo" EntitySet="OrderInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLab_Role" Association="Session1_TaskMaster_PolivanovModel.FK_UserLab_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UserLab" EntitySet="UserLab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLabServices_UserLab" Association="Session1_TaskMaster_PolivanovModel.FK_UserLabServices_UserLab">
+            <End Role="UserLab" EntitySet="UserLab" />
+            <End Role="UserLabServices" EntitySet="UserLabServices" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Analizator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OrderInfo" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Analizator1" FromRole="Analizator" ToRole="OrderInfo" />
+        </EntityType>
+        <EntityType Name="InsuranceCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="INN" Type="Int32" />
+          <Property Name="BIC" Type="Int32" />
+          <Property Name="RS" Type="Int32" />
+          <NavigationProperty Name="Invoicing" Relationship="Session1_TaskMaster_PolivanovModel.FK_Invoicing_InsuranceCompany" FromRole="InsuranceCompany" ToRole="Invoicing" />
+        </EntityType>
+        <EntityType Name="InsurancePoliceType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InsurancePolicy" Relationship="Session1_TaskMaster_PolivanovModel.FK_InsurancePolicy_InsurancePoliceType" FromRole="InsurancePoliceType" ToRole="InsurancePolicy" />
+        </EntityType>
+        <EntityType Name="InsurancePolicy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="IdType" Type="Int32" />
+          <NavigationProperty Name="InsurancePoliceType" Relationship="Session1_TaskMaster_PolivanovModel.FK_InsurancePolicy_InsurancePoliceType" FromRole="InsurancePolicy" ToRole="InsurancePoliceType" />
+          <NavigationProperty Name="Pacient" Relationship="Session1_TaskMaster_PolivanovModel.FK_Pacient_InsurancePolicy" FromRole="InsurancePolicy" ToRole="Pacient" />
+        </EntityType>
+        <EntityType Name="Invoicing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdInsuranceCompany" Type="Int32" />
+          <Property Name="IdUser" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="IdOrderComplate" Type="Int32" />
+          <NavigationProperty Name="InsuranceCompany" Relationship="Session1_TaskMaster_PolivanovModel.FK_Invoicing_InsuranceCompany" FromRole="Invoicing" ToRole="InsuranceCompany" />
+          <NavigationProperty Name="UserLab" Relationship="Session1_TaskMaster_PolivanovModel.FK_Invoicing_UserLab" FromRole="Invoicing" ToRole="UserLab" />
+        </EntityType>
+        <EntityType Name="LabServices">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="DayComplate" Type="Int32" />
+          <Property Name="AverageDeviation" Type="Int32" />
+          <NavigationProperty Name="OrderInfo" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_LabServices" FromRole="LabServices" ToRole="OrderInfo" />
+          <NavigationProperty Name="UserLabServices" Relationship="Session1_TaskMaster_PolivanovModel.FK_UserLabServices_LabServices1" FromRole="LabServices" ToRole="UserLabServices" />
+        </EntityType>
+        <EntityType Name="OrderComplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdOrder" Type="Int32" />
+          <Property Name="IdUser" Type="Int32" />
+          <Property Name="DateComplate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="OrderInfo" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_OrderInfo" FromRole="OrderComplate" ToRole="OrderInfo" />
+          <NavigationProperty Name="UserLab" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_UserLab" FromRole="OrderComplate" ToRole="UserLab" />
+        </EntityType>
+        <EntityType Name="OrderInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdLabServices" Type="Int32" />
+          <Property Name="Result" Type="Double" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Accepted" Type="Boolean" />
+          <Property Name="IdStatus" Type="Int32" />
+          <Property Name="IdAnalizator" Type="Int32" />
+          <Property Name="IdPacient" Type="Int32" />
+          <Property Name="Barcode" Type="Int32" />
+          <NavigationProperty Name="Analizator" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Analizator1" FromRole="OrderInfo" ToRole="Analizator" />
+          <NavigationProperty Name="LabServices" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_LabServices" FromRole="OrderInfo" ToRole="LabServices" />
+          <NavigationProperty Name="OrderComplate" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_OrderInfo" FromRole="OrderInfo" ToRole="OrderComplate" />
+          <NavigationProperty Name="Pacient" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Pacient1" FromRole="OrderInfo" ToRole="Pacient" />
+          <NavigationProperty Name="Status" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Status1" FromRole="OrderInfo" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="Pacient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassportS" Type="Int32" />
+          <Property Name="PassportN" Type="Int32" />
+          <Property Name="Birthdate" Type="DateTime" Precision="0" />
+          <Property Name="DateEnter" Type="DateTime" Precision="0" />
+          <Property Name="DateExit" Type="DateTime" Precision="0" />
+          <Property Name="Attempt" Type="Boolean" />
+          <Property Name="IdInsurancePolicy" Type="Int32" />
+          <NavigationProperty Name="InsurancePolicy" Relationship="Session1_TaskMaster_PolivanovModel.FK_Pacient_InsurancePolicy" FromRole="Pacient" ToRole="InsurancePolicy" />
+          <NavigationProperty Name="OrderInfo" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Pacient1" FromRole="Pacient" ToRole="OrderInfo" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserLab" Relationship="Session1_TaskMaster_PolivanovModel.FK_UserLab_Role" FromRole="Role" ToRole="UserLab" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OrderInfo" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Status1" FromRole="Status" ToRole="OrderInfo" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserLab">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DataEnter" Type="DateTime" Precision="0" />
+          <Property Name="DataExit" Type="DateTime" Precision="0" />
+          <Property Name="IdRole" Type="Int32" />
+          <Property Name="Attempt" Type="Boolean" />
+          <NavigationProperty Name="Invoicing" Relationship="Session1_TaskMaster_PolivanovModel.FK_Invoicing_UserLab" FromRole="UserLab" ToRole="Invoicing" />
+          <NavigationProperty Name="OrderComplate" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_UserLab" FromRole="UserLab" ToRole="OrderComplate" />
+          <NavigationProperty Name="Role" Relationship="Session1_TaskMaster_PolivanovModel.FK_UserLab_Role" FromRole="UserLab" ToRole="Role" />
+          <NavigationProperty Name="UserLabServices" Relationship="Session1_TaskMaster_PolivanovModel.FK_UserLabServices_UserLab" FromRole="UserLab" ToRole="UserLabServices" />
+        </EntityType>
+        <EntityType Name="UserLabServices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdLabServices" Type="Int32" />
+          <Property Name="IdUser" Type="Int32" />
+          <NavigationProperty Name="LabServices" Relationship="Session1_TaskMaster_PolivanovModel.FK_UserLabServices_LabServices1" FromRole="UserLabServices" ToRole="LabServices" />
+          <NavigationProperty Name="UserLab" Relationship="Session1_TaskMaster_PolivanovModel.FK_UserLabServices_UserLab" FromRole="UserLabServices" ToRole="UserLab" />
+        </EntityType>
+        <Association Name="FK_OrderInfo_Analizator1">
+          <End Type="Session1_TaskMaster_PolivanovModel.Analizator" Role="Analizator" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.OrderInfo" Role="OrderInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Analizator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderInfo">
+              <PropertyRef Name="IdAnalizator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoicing_InsuranceCompany">
+          <End Type="Session1_TaskMaster_PolivanovModel.InsuranceCompany" Role="InsuranceCompany" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.Invoicing" Role="Invoicing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsuranceCompany">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoicing">
+              <PropertyRef Name="IdInsuranceCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InsurancePolicy_InsurancePoliceType">
+          <End Type="Session1_TaskMaster_PolivanovModel.InsurancePoliceType" Role="InsurancePoliceType" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.InsurancePolicy" Role="InsurancePolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsurancePoliceType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InsurancePolicy">
+              <PropertyRef Name="IdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pacient_InsurancePolicy">
+          <End Type="Session1_TaskMaster_PolivanovModel.InsurancePolicy" Role="InsurancePolicy" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.Pacient" Role="Pacient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InsurancePolicy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pacient">
+              <PropertyRef Name="IdInsurancePolicy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoicing_UserLab">
+          <End Type="Session1_TaskMaster_PolivanovModel.UserLab" Role="UserLab" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.Invoicing" Role="Invoicing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserLab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoicing">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderInfo_LabServices">
+          <End Type="Session1_TaskMaster_PolivanovModel.LabServices" Role="LabServices" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.OrderInfo" Role="OrderInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LabServices">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="OrderInfo">
+              <PropertyRef Name="IdLabServices" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLabServices_LabServices1">
+          <End Type="Session1_TaskMaster_PolivanovModel.LabServices" Role="LabServices" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.UserLabServices" Role="UserLabServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LabServices">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="UserLabServices">
+              <PropertyRef Name="IdLabServices" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderComplate_OrderInfo">
+          <End Type="Session1_TaskMaster_PolivanovModel.OrderInfo" Role="OrderInfo" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.OrderComplate" Role="OrderComplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderComplate">
+              <PropertyRef Name="IdOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderComplate_UserLab">
+          <End Type="Session1_TaskMaster_PolivanovModel.UserLab" Role="UserLab" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.OrderComplate" Role="OrderComplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserLab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderComplate">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderInfo_Pacient1">
+          <End Type="Session1_TaskMaster_PolivanovModel.Pacient" Role="Pacient" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.OrderInfo" Role="OrderInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderInfo">
+              <PropertyRef Name="IdPacient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderInfo_Status1">
+          <End Type="Session1_TaskMaster_PolivanovModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.OrderInfo" Role="OrderInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderInfo">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLab_Role">
+          <End Type="Session1_TaskMaster_PolivanovModel.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.UserLab" Role="UserLab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserLab">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLabServices_UserLab">
+          <End Type="Session1_TaskMaster_PolivanovModel.UserLab" Role="UserLab" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.UserLabServices" Role="UserLabServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserLab">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserLabServices">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Session1_TaskMaster_PolivanovModelContainer" CdmEntityContainer="Session1_TaskMaster_PolivanovEntities">
+          <EntitySetMapping Name="Analizator">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.Analizator">
+              <MappingFragment StoreEntitySet="Analizator">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InsuranceCompany">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.InsuranceCompany">
+              <MappingFragment StoreEntitySet="InsuranceCompany">
+                <ScalarProperty Name="RS" ColumnName="RS" />
+                <ScalarProperty Name="BIC" ColumnName="BIC" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InsurancePoliceType">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.InsurancePoliceType">
+              <MappingFragment StoreEntitySet="InsurancePoliceType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InsurancePolicy">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.InsurancePolicy">
+              <MappingFragment StoreEntitySet="InsurancePolicy">
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoicing">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.Invoicing">
+              <MappingFragment StoreEntitySet="Invoicing">
+                <ScalarProperty Name="IdOrderComplate" ColumnName="IdOrderComplate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdInsuranceCompany" ColumnName="IdInsuranceCompany" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LabServices">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.LabServices">
+              <MappingFragment StoreEntitySet="LabServices">
+                <ScalarProperty Name="AverageDeviation" ColumnName="AverageDeviation" />
+                <ScalarProperty Name="DayComplate" ColumnName="DayComplate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderComplate">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.OrderComplate">
+              <MappingFragment StoreEntitySet="OrderComplate">
+                <ScalarProperty Name="DateComplate" ColumnName="DateComplate" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderInfo">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.OrderInfo">
+              <MappingFragment StoreEntitySet="OrderInfo">
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="IdPacient" ColumnName="IdPacient" />
+                <ScalarProperty Name="IdAnalizator" ColumnName="IdAnalizator" />
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="IdLabServices" ColumnName="IdLabServices" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pacient">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.Pacient">
+              <MappingFragment StoreEntitySet="Pacient">
+                <ScalarProperty Name="IdInsurancePolicy" ColumnName="IdInsurancePolicy" />
+                <ScalarProperty Name="Attempt" ColumnName="Attempt" />
+                <ScalarProperty Name="DateExit" ColumnName="DateExit" />
+                <ScalarProperty Name="DateEnter" ColumnName="DateEnter" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="PassportN" ColumnName="PassportN" />
+                <ScalarProperty Name="PassportS" ColumnName="PassportS" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EIN" ColumnName="EIN" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLab">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.UserLab">
+              <MappingFragment StoreEntitySet="UserLab">
+                <ScalarProperty Name="Attempt" ColumnName="Attempt" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="DataExit" ColumnName="DataExit" />
+                <ScalarProperty Name="DataEnter" ColumnName="DataEnter" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLabServices">
+            <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.UserLabServices">
+              <MappingFragment StoreEntitySet="UserLabServices">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdLabServices" ColumnName="IdLabServices" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
