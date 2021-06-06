@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskMasterMobilePolivanov"
         mc:Ignorable="d"
+        BorderBrush="#FF76E383"
+        BorderThickness="7 0 7 7"
         Title="MainWindow" 
         MinHeight="450" 
         WindowStyle="None"
         MinWidth="800">
-    <Grid>
+    <Grid
+        >
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="388*"/>

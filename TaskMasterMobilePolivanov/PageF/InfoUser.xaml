@@ -9,9 +9,12 @@
       Title="InfoUser">
 
     <Grid>
-        <StackPanel>
-            
-            <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="397*" MaxHeight="900"/>
+        </Grid.RowDefinitions>
+        <Grid
+                Grid.Row="0">
                 <StackPanel
                     Orientation="Horizontal"
                     HorizontalAlignment="Left"
@@ -34,18 +37,18 @@
                     Style="{StaticResource BtnClassic}"
                     Content="Back"/>
             </Grid>
-            <DataGrid
-                IsReadOnly="True"
-                Height="400"
-                AutoGenerateColumns="False"
-                Name="DataUser"
-                Margin="10">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Date" Binding="{Binding DataEnter}" Width="*"/>
-                    <DataGridTextColumn Header="Login" Binding="{Binding Login}" Width="*"/>
-                    <DataGridTextColumn Header="Attempt" Binding="{Binding Attempt}" Width="*"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </StackPanel>
+
+        <DataGrid
+            Grid.Row="1"
+            IsReadOnly="True"
+            AutoGenerateColumns="False"
+            Name="DataUser"
+            Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" Binding="{Binding DataEnter}" Width="*"/>
+                <DataGridTextColumn Header="Login" Binding="{Binding Login}" Width="*"/>
+                <DataGridTextColumn Header="Attempt" Binding="{Binding Attempt}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
