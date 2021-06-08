@@ -17,7 +17,7 @@ namespace TaskMasterMobilePolivanov.DataBaseF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LabServices()
         {
-            this.OrderInfo = new HashSet<OrderInfo>();
+            this.PacientLabService = new HashSet<PacientLabService>();
             this.UserLabServices = new HashSet<UserLabServices>();
         }
     
@@ -29,7 +29,7 @@ namespace TaskMasterMobilePolivanov.DataBaseF
         public Nullable<int> AverageDeviation { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderInfo> OrderInfo { get; set; }
+        public virtual ICollection<PacientLabService> PacientLabService { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserLabServices> UserLabServices { get; set; }
     }

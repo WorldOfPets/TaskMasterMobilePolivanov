@@ -35,12 +35,13 @@ namespace TaskMasterMobilePolivanov.PageF
                     userLogin.Attempt = true;
                     userLogin.DataEnter = DateTime.Now;
                     ClassF.databaseClass.DBCl.SaveChanges();
-                    ClassF.FrmPageClass.frm.Navigate(new PageF.LoadPage(new PageF.LaborantP()));
+                    ClassF.FrmPageClass.frm.Navigate(new PageF.LoadPage(new PageF.LaborantP(userLogin.Id)));
                 }
                 else 
                 {
                     MessageBox.Show("Неверный логин или пароль","..::Error::..");
                     userLogin.Attempt = false;
+                    userLogin.DataEnter = DateTime.Now;
                     ClassF.databaseClass.DBCl.SaveChanges();
                 }
             }

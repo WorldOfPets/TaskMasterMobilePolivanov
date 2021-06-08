@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskMasterMobilePolivanov"
         mc:Ignorable="d"
-        BorderBrush="#FF76E383"
-        BorderThickness="7 0 7 7"
         Title="MainWindow" 
+        d:DesignHeight="450" d:DesignWidth="800"
         MinHeight="450" 
         WindowStyle="None"
         MinWidth="800">
@@ -15,7 +14,7 @@
         >
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
-            <RowDefinition Height="388*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel
             MouseDown="StackPanel_MouseDown"
@@ -34,13 +33,11 @@
                     Background="#FF498C51"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Grid.Row="1">
-            <Frame
-                Name="FrmMain"
-                NavigationUIVisibility="Hidden"/>
-        </StackPanel>
+        <Frame
+            Grid.Row="1"
+            MinWidth="790"
+            MinHeight="415"
+            Name="FrmMain"
+            NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

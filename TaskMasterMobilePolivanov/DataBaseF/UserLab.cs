@@ -32,6 +32,7 @@ namespace TaskMasterMobilePolivanov.DataBaseF
         public Nullable<System.DateTime> DataExit { get; set; }
         public Nullable<int> IdRole { get; set; }
         public Nullable<bool> Attempt { get; set; }
+        public Nullable<System.DateTime> Birthdate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoicing> Invoicing { get; set; }

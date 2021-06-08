@@ -119,6 +119,9 @@
     <Compile Include="DataBaseF\Pacient.cs">
       <DependentUpon>DBSession1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataBaseF\PacientLabService.cs">
+      <DependentUpon>DBSession1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataBaseF\Role.cs">
       <DependentUpon>DBSession1.tt</DependentUpon>
     </Compile>
@@ -212,6 +215,9 @@
       <DependentUpon>DBSession1.edmx</DependentUpon>
       <LastGenOutput>DBSession1.cs</LastGenOutput>
     </Content>
+    <Resource Include="ResF\laborant_1.jpeg" />
+    <Resource Include="ResF\laborant_2.png" />
+    <Resource Include="ResF\laborant_is.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ResF\loader.gif" />

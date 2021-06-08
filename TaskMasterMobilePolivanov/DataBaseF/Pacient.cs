@@ -18,6 +18,7 @@ namespace TaskMasterMobilePolivanov.DataBaseF
         public Pacient()
         {
             this.OrderInfo = new HashSet<OrderInfo>();
+            this.PacientLabService = new HashSet<PacientLabService>();
         }
     
         public int Id { get; set; }
@@ -40,5 +41,7 @@ namespace TaskMasterMobilePolivanov.DataBaseF
         public virtual InsurancePolicy InsurancePolicy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderInfo> OrderInfo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PacientLabService> PacientLabService { get; set; }
     }
 }

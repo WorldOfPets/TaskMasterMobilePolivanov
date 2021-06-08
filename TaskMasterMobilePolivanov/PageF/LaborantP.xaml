@@ -5,10 +5,97 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TaskMasterMobilePolivanov.PageF"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="415" d:DesignWidth="800"
       Title="LaborantP">
     <Grid>
-        <Button
-            Click="Button_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="270"/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>
+        <Border
+            BorderBrush="#FF498C51"
+            BorderThickness="3">
+            <Grid>
+                
+        <StackPanel
+            Background="#FF76E383"
+            Grid.Column="0">
+            <TextBlock 
+                Name="TbRole"
+                Style="{StaticResource TBlockClassic}"
+                Text="Роль в системе"/>
+            <StackPanel
+                Orientation="Horizontal"
+                VerticalAlignment="Top">
+                <Border
+                    BorderBrush="#FF498C51"
+                    BorderThickness="3"
+                    Margin="5"
+                    Padding="5"
+                    HorizontalAlignment="Left">
+                    <Image 
+                        Name="Img"
+                        Source="/ResF/laborant_1.jpeg"
+                        Height="90"/>
+                </Border>
+                <StackPanel>
+                    <TextBlock 
+                        Name="TbLastName"
+                        Style="{StaticResource TBlockClassic}"
+                        Text="Фамилия"/>
+                    <TextBlock 
+                        Name="TbName"
+                        Style="{StaticResource TBlockClassic}"
+                        Text="Имя"/>
+                    <TextBlock 
+                        Name="TbAge"
+                        Style="{StaticResource TBlockClassic}"
+                        Text="Возраст"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <Button
+                    Name="BtnBiomaterial"
+                    Visibility="Visible"
+                    Content="Принять биоматериал"
+                    Style="{StaticResource BtnLaborantPStyle}"/>
+                <Button
+                    Name="BtnSformirovatOt4et"
+                    Visibility="Visible"
+                    Content="Сформировать отчеты"
+                    Style="{StaticResource BtnLaborantPStyle}"/>
+                <Button
+                    Name="BtnWorkWith"
+                    Visibility="Visible"
+                    Content="Работать с анализатором"
+                    Style="{StaticResource BtnLaborantPStyle}"/>
+                <Button
+                    Name="BtnSeeOt4et"
+                    Visibility="Visible"
+                    Content="Просмотреть отчеты"
+                    Style="{StaticResource BtnLaborantPStyle}"/>
+                <Button
+                    Name="BtnC4et"
+                    Visibility="Visible"
+                    Content="Сформировать счет"
+                    Style="{StaticResource BtnLaborantPStyle}"/>
+            </StackPanel>
+                
+            </StackPanel>
+                <Button
+                    Click="BtnBack_Click"
+                    Name="BtnBack"
+                    Margin="5 5 5 15"
+                    VerticalAlignment="Bottom"
+                    Style="{StaticResource BtnLaborantPStyle}"
+                    Content="Выйти"/>
+            </Grid>
+        </Border>
+        <Frame
+            Grid.Column="1"
+            Name="FrmLaborant"
+            NavigationUIVisibility="Hidden">
+            
+        </Frame>
     </Grid>
 </Page>

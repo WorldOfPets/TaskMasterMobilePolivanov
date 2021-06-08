@@ -34,6 +34,7 @@ namespace TaskMasterMobilePolivanov.DataBaseF
         public virtual DbSet<OrderComplate> OrderComplate { get; set; }
         public virtual DbSet<OrderInfo> OrderInfo { get; set; }
         public virtual DbSet<Pacient> Pacient { get; set; }
+        public virtual DbSet<PacientLabService> PacientLabService { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
