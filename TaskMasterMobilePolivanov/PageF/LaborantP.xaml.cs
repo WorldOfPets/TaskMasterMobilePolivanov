@@ -24,6 +24,8 @@ namespace TaskMasterMobilePolivanov.PageF
         {
             InitializeComponent();
 
+            ClassF.FrmPageClass.frmLobarant = FrmLaborant;
+
             var UserInSys = ClassF.databaseClass.DBCl.UserLab.FirstOrDefault(x => x.Id == ID);
             TbLastName.Text = UserInSys.LastName;
             TbName.Text = UserInSys.Name;
@@ -45,14 +47,15 @@ namespace TaskMasterMobilePolivanov.PageF
             else if (UserInSys.IdRole == 3) { Img.Source = new BitmapImage(image3); BtnBiomaterial.Visibility = Visibility.Collapsed; BtnSformirovatOt4et.Visibility = Visibility.Collapsed; BtnWorkWith.Visibility = Visibility.Collapsed; }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ClassF.FrmPageClass.frm.Navigate(new LoadPage(new LoginP()));
-        }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             ClassF.FrmPageClass.frm.Navigate(new LoadPage(new LoginP()));
+        }
+
+        private void BtnBiomaterial_Click(object sender, RoutedEventArgs e)
+        {
+            ClassF.FrmPageClass.frmLobarant.Navigate(new BiomaterialPage());
         }
     }
 }

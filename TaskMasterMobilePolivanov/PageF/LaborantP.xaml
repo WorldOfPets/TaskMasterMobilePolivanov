@@ -55,6 +55,7 @@
             </StackPanel>
             <StackPanel>
                 <Button
+                    Click="BtnBiomaterial_Click"
                     Name="BtnBiomaterial"
                     Visibility="Visible"
                     Content="Принять биоматериал"

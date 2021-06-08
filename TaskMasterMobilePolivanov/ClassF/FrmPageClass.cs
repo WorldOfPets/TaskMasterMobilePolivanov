@@ -10,5 +10,7 @@ namespace TaskMasterMobilePolivanov.ClassF
     class FrmPageClass
     {
         public static Frame frm;
+
+        public static Frame frmLobarant;
     }
 }
