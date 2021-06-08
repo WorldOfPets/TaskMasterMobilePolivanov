@@ -29,6 +29,13 @@ namespace TaskMasterMobilePolivanov.PageF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
+            //var userLabs = ClassF.databaseClass.DBCl.UserLab;
+            //foreach (var userLab in userLabs)
+            //{
+            //    userLab.Attempt = true;
+            //}
+            //ClassF.databaseClass.DBCl.SaveChanges();
             ClassF.FrmPageClass.frm.Navigate(new LoadPage(new LoginP()));
         }
 

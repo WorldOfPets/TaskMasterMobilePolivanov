@@ -66,6 +66,7 @@
                 </StackPanel>
                 </StackPanel>
                 <Button 
+                    ToolTip="История входа в систему"
                     Click="BtnInfo_Click"
                     Name="BtnInfo"
                     Padding="0"
