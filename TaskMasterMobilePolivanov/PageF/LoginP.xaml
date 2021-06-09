@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:TaskMasterMobilePolivanov.PageF"
       mc:Ignorable="d" 
       d:DesignHeight="415" d:DesignWidth="800"
-      Title="LoginP">
+      Title="LoginP"
+      Background="Transparent">
 
     <Grid
         >
