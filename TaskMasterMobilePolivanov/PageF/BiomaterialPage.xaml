@@ -43,6 +43,8 @@
                                 Text="Код: "
                                 Style="{StaticResource TBlockClassic}"/>
                             <TextBox
+                                MaxLength="7"
+                                TextChanged="TbBarcode_TextChanged"
                                 Style="{StaticResource TBoxClassic}"
                                 Name="TbBarcode"
                                 Height="25"

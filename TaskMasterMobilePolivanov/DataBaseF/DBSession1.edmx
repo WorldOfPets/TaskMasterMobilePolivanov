@@ -65,20 +65,20 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdOrder" Type="int" />
+          <Property Name="IdOreder" Type="int" />
           <Property Name="IdUser" Type="int" />
           <Property Name="DateComplate" Type="date" />
+          <Property Name="IdAnalizator" Type="int" />
+          <Property Name="IdStatus" Type="int" />
+          <Property Name="Accepted" Type="bit" />
+          <Property Name="Result" Type="float" />
         </EntityType>
         <EntityType Name="OrderInfo">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Result" Type="float" />
           <Property Name="Date" Type="date" />
-          <Property Name="Accepted" Type="bit" />
-          <Property Name="IdStatus" Type="int" />
-          <Property Name="IdAnalizator" Type="int" />
           <Property Name="IdPacient" Type="int" />
           <Property Name="Barcode" Type="int" />
         </EntityType>
@@ -195,7 +195,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderComplate_OrderInfo">
+        <Association Name="FK_OrderComplate_Analizator">
+          <End Role="Analizator" Type="Self.Analizator" Multiplicity="0..1" />
+          <End Role="OrderComplate" Type="Self.OrderComplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Analizator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderComplate">
+              <PropertyRef Name="IdAnalizator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderComplate_OrderInfo1">
           <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="0..1" />
           <End Role="OrderComplate" Type="Self.OrderComplate" Multiplicity="*" />
           <ReferentialConstraint>
@@ -203,11 +215,23 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="OrderComplate">
-              <PropertyRef Name="IdOrder" />
+              <PropertyRef Name="IdOreder" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderComplate_UserLab">
+        <Association Name="FK_OrderComplate_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="OrderComplate" Type="Self.OrderComplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderComplate">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderComplate_UserLab1">
           <End Role="UserLab" Type="Self.UserLab" Multiplicity="0..1" />
           <End Role="OrderComplate" Type="Self.OrderComplate" Multiplicity="*" />
           <ReferentialConstraint>
@@ -216,18 +240,6 @@
             </Principal>
             <Dependent Role="OrderComplate">
               <PropertyRef Name="IdUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderInfo_Analizator1">
-          <End Role="Analizator" Type="Self.Analizator" Multiplicity="0..1" />
-          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Analizator">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrderInfo">
-              <PropertyRef Name="IdAnalizator" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -240,18 +252,6 @@
             </Principal>
             <Dependent Role="OrderInfo">
               <PropertyRef Name="IdPacient" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderInfo_Status1">
-          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
-          <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrderInfo">
-              <PropertyRef Name="IdStatus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -355,24 +355,24 @@
             <End Role="UserLab" EntitySet="UserLab" />
             <End Role="Invoicing" EntitySet="Invoicing" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderComplate_OrderInfo" Association="Self.FK_OrderComplate_OrderInfo">
+          <AssociationSet Name="FK_OrderComplate_Analizator" Association="Self.FK_OrderComplate_Analizator">
+            <End Role="Analizator" EntitySet="Analizator" />
+            <End Role="OrderComplate" EntitySet="OrderComplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderComplate_OrderInfo1" Association="Self.FK_OrderComplate_OrderInfo1">
             <End Role="OrderInfo" EntitySet="OrderInfo" />
             <End Role="OrderComplate" EntitySet="OrderComplate" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderComplate_UserLab" Association="Self.FK_OrderComplate_UserLab">
+          <AssociationSet Name="FK_OrderComplate_Status" Association="Self.FK_OrderComplate_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="OrderComplate" EntitySet="OrderComplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderComplate_UserLab1" Association="Self.FK_OrderComplate_UserLab1">
             <End Role="UserLab" EntitySet="UserLab" />
             <End Role="OrderComplate" EntitySet="OrderComplate" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderInfo_Analizator1" Association="Self.FK_OrderInfo_Analizator1">
-            <End Role="Analizator" EntitySet="Analizator" />
-            <End Role="OrderInfo" EntitySet="OrderInfo" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderInfo_Pacient1" Association="Self.FK_OrderInfo_Pacient1">
             <End Role="Pacient" EntitySet="Pacient" />
-            <End Role="OrderInfo" EntitySet="OrderInfo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderInfo_Status1" Association="Self.FK_OrderInfo_Status1">
-            <End Role="Status" EntitySet="Status" />
             <End Role="OrderInfo" EntitySet="OrderInfo" />
           </AssociationSet>
           <AssociationSet Name="FK_Pacient_InsurancePolicy" Association="Self.FK_Pacient_InsurancePolicy">
@@ -420,9 +420,9 @@
           <EntitySet Name="sysdiagrams" EntityType="Session1_TaskMaster_PolivanovModel.sysdiagrams" />
           <EntitySet Name="UserLab" EntityType="Session1_TaskMaster_PolivanovModel.UserLab" />
           <EntitySet Name="UserLabServices" EntityType="Session1_TaskMaster_PolivanovModel.UserLabServices" />
-          <AssociationSet Name="FK_OrderInfo_Analizator1" Association="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Analizator1">
+          <AssociationSet Name="FK_OrderComplate_Analizator" Association="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_Analizator">
             <End Role="Analizator" EntitySet="Analizator" />
-            <End Role="OrderInfo" EntitySet="OrderInfo" />
+            <End Role="OrderComplate" EntitySet="OrderComplate" />
           </AssociationSet>
           <AssociationSet Name="FK_Invoicing_InsuranceCompany" Association="Session1_TaskMaster_PolivanovModel.FK_Invoicing_InsuranceCompany">
             <End Role="InsuranceCompany" EntitySet="InsuranceCompany" />
@@ -448,20 +448,20 @@
             <End Role="LabServices" EntitySet="LabServices" />
             <End Role="UserLabServices" EntitySet="UserLabServices" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderComplate_OrderInfo" Association="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_OrderInfo">
+          <AssociationSet Name="FK_OrderComplate_OrderInfo1" Association="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_OrderInfo1">
             <End Role="OrderInfo" EntitySet="OrderInfo" />
             <End Role="OrderComplate" EntitySet="OrderComplate" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderComplate_UserLab" Association="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_UserLab">
+          <AssociationSet Name="FK_OrderComplate_Status" Association="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="OrderComplate" EntitySet="OrderComplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderComplate_UserLab1" Association="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_UserLab1">
             <End Role="UserLab" EntitySet="UserLab" />
             <End Role="OrderComplate" EntitySet="OrderComplate" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderInfo_Pacient1" Association="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Pacient1">
             <End Role="Pacient" EntitySet="Pacient" />
-            <End Role="OrderInfo" EntitySet="OrderInfo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderInfo_Status1" Association="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Status1">
-            <End Role="Status" EntitySet="Status" />
             <End Role="OrderInfo" EntitySet="OrderInfo" />
           </AssociationSet>
           <AssociationSet Name="FK_PacientLabService_Pacient" Association="Session1_TaskMaster_PolivanovModel.FK_PacientLabService_Pacient">
@@ -483,7 +483,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="OrderInfo" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Analizator1" FromRole="Analizator" ToRole="OrderInfo" />
+          <NavigationProperty Name="OrderComplate" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_Analizator" FromRole="Analizator" ToRole="OrderComplate" />
         </EntityType>
         <EntityType Name="InsuranceCompany">
           <Key>
@@ -546,28 +546,28 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdOrder" Type="Int32" />
+          <Property Name="IdOreder" Type="Int32" />
           <Property Name="IdUser" Type="Int32" />
           <Property Name="DateComplate" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="OrderInfo" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_OrderInfo" FromRole="OrderComplate" ToRole="OrderInfo" />
-          <NavigationProperty Name="UserLab" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_UserLab" FromRole="OrderComplate" ToRole="UserLab" />
+          <Property Name="IdAnalizator" Type="Int32" />
+          <Property Name="IdStatus" Type="Int32" />
+          <Property Name="Accepted" Type="Boolean" />
+          <Property Name="Result" Type="Double" />
+          <NavigationProperty Name="Analizator" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_Analizator" FromRole="OrderComplate" ToRole="Analizator" />
+          <NavigationProperty Name="OrderInfo" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_OrderInfo1" FromRole="OrderComplate" ToRole="OrderInfo" />
+          <NavigationProperty Name="Status" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_Status" FromRole="OrderComplate" ToRole="Status" />
+          <NavigationProperty Name="UserLab" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_UserLab1" FromRole="OrderComplate" ToRole="UserLab" />
         </EntityType>
         <EntityType Name="OrderInfo">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Result" Type="Double" />
           <Property Name="Date" Type="DateTime" Precision="0" />
-          <Property Name="Accepted" Type="Boolean" />
-          <Property Name="IdStatus" Type="Int32" />
-          <Property Name="IdAnalizator" Type="Int32" />
           <Property Name="IdPacient" Type="Int32" />
           <Property Name="Barcode" Type="Int32" />
-          <NavigationProperty Name="Analizator" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Analizator1" FromRole="OrderInfo" ToRole="Analizator" />
-          <NavigationProperty Name="OrderComplate" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_OrderInfo" FromRole="OrderInfo" ToRole="OrderComplate" />
+          <NavigationProperty Name="OrderComplate" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_OrderInfo1" FromRole="OrderInfo" ToRole="OrderComplate" />
           <NavigationProperty Name="Pacient" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Pacient1" FromRole="OrderInfo" ToRole="Pacient" />
-          <NavigationProperty Name="Status" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Status1" FromRole="OrderInfo" ToRole="Status" />
         </EntityType>
         <EntityType Name="Pacient">
           <Key>
@@ -617,7 +617,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="OrderInfo" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderInfo_Status1" FromRole="Status" ToRole="OrderInfo" />
+          <NavigationProperty Name="OrderComplate" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_Status" FromRole="Status" ToRole="OrderComplate" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -645,7 +645,7 @@
           <Property Name="Attempt" Type="Boolean" />
           <Property Name="Birthdate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Invoicing" Relationship="Session1_TaskMaster_PolivanovModel.FK_Invoicing_UserLab" FromRole="UserLab" ToRole="Invoicing" />
-          <NavigationProperty Name="OrderComplate" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_UserLab" FromRole="UserLab" ToRole="OrderComplate" />
+          <NavigationProperty Name="OrderComplate" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_UserLab1" FromRole="UserLab" ToRole="OrderComplate" />
           <NavigationProperty Name="Role" Relationship="Session1_TaskMaster_PolivanovModel.FK_UserLab_Role" FromRole="UserLab" ToRole="Role" />
           <NavigationProperty Name="UserLabServices" Relationship="Session1_TaskMaster_PolivanovModel.FK_UserLabServices_UserLab" FromRole="UserLab" ToRole="UserLabServices" />
         </EntityType>
@@ -659,14 +659,14 @@
           <NavigationProperty Name="LabServices" Relationship="Session1_TaskMaster_PolivanovModel.FK_UserLabServices_LabServices1" FromRole="UserLabServices" ToRole="LabServices" />
           <NavigationProperty Name="UserLab" Relationship="Session1_TaskMaster_PolivanovModel.FK_UserLabServices_UserLab" FromRole="UserLabServices" ToRole="UserLab" />
         </EntityType>
-        <Association Name="FK_OrderInfo_Analizator1">
+        <Association Name="FK_OrderComplate_Analizator">
           <End Type="Session1_TaskMaster_PolivanovModel.Analizator" Role="Analizator" Multiplicity="0..1" />
-          <End Type="Session1_TaskMaster_PolivanovModel.OrderInfo" Role="OrderInfo" Multiplicity="*" />
+          <End Type="Session1_TaskMaster_PolivanovModel.OrderComplate" Role="OrderComplate" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Analizator">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="OrderInfo">
+            <Dependent Role="OrderComplate">
               <PropertyRef Name="IdAnalizator" />
             </Dependent>
           </ReferentialConstraint>
@@ -743,7 +743,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderComplate_OrderInfo">
+        <Association Name="FK_OrderComplate_OrderInfo1">
           <End Type="Session1_TaskMaster_PolivanovModel.OrderInfo" Role="OrderInfo" Multiplicity="0..1" />
           <End Type="Session1_TaskMaster_PolivanovModel.OrderComplate" Role="OrderComplate" Multiplicity="*" />
           <ReferentialConstraint>
@@ -751,11 +751,23 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="OrderComplate">
-              <PropertyRef Name="IdOrder" />
+              <PropertyRef Name="IdOreder" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderComplate_UserLab">
+        <Association Name="FK_OrderComplate_Status">
+          <End Type="Session1_TaskMaster_PolivanovModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.OrderComplate" Role="OrderComplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderComplate">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderComplate_UserLab1">
           <End Type="Session1_TaskMaster_PolivanovModel.UserLab" Role="UserLab" Multiplicity="0..1" />
           <End Type="Session1_TaskMaster_PolivanovModel.OrderComplate" Role="OrderComplate" Multiplicity="*" />
           <ReferentialConstraint>
@@ -776,18 +788,6 @@
             </Principal>
             <Dependent Role="OrderInfo">
               <PropertyRef Name="IdPacient" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderInfo_Status1">
-          <End Type="Session1_TaskMaster_PolivanovModel.Status" Role="Status" Multiplicity="0..1" />
-          <End Type="Session1_TaskMaster_PolivanovModel.OrderInfo" Role="OrderInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrderInfo">
-              <PropertyRef Name="IdStatus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -897,9 +897,13 @@
           <EntitySetMapping Name="OrderComplate">
             <EntityTypeMapping TypeName="Session1_TaskMaster_PolivanovModel.OrderComplate">
               <MappingFragment StoreEntitySet="OrderComplate">
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="IdAnalizator" ColumnName="IdAnalizator" />
                 <ScalarProperty Name="DateComplate" ColumnName="DateComplate" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
+                <ScalarProperty Name="IdOreder" ColumnName="IdOreder" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -909,11 +913,7 @@
               <MappingFragment StoreEntitySet="OrderInfo">
                 <ScalarProperty Name="Barcode" ColumnName="Barcode" />
                 <ScalarProperty Name="IdPacient" ColumnName="IdPacient" />
-                <ScalarProperty Name="IdAnalizator" ColumnName="IdAnalizator" />
-                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
-                <ScalarProperty Name="Accepted" ColumnName="Accepted" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Result" ColumnName="Result" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

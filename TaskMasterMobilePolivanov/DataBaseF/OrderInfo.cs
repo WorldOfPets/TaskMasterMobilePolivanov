@@ -21,18 +21,12 @@ namespace TaskMasterMobilePolivanov.DataBaseF
         }
     
         public int Id { get; set; }
-        public Nullable<double> Result { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<bool> Accepted { get; set; }
-        public Nullable<int> IdStatus { get; set; }
-        public Nullable<int> IdAnalizator { get; set; }
         public Nullable<int> IdPacient { get; set; }
         public Nullable<int> Barcode { get; set; }
     
-        public virtual Analizator Analizator { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderComplate> OrderComplate { get; set; }
         public virtual Pacient Pacient { get; set; }
-        public virtual Status Status { get; set; }
     }
 }

@@ -1,0 +1,144 @@
+﻿<Page x:Class="TaskMasterMobilePolivanov.PageF.AddPacient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TaskMasterMobilePolivanov.PageF"
+      mc:Ignorable="d" 
+      d:DesignHeight="415" d:DesignWidth="570"
+      Title="AddPacient">
+    <Grid>
+        <TextBlock
+            VerticalAlignment="Top"
+            FontSize="20"
+            HorizontalAlignment="Center"
+            Text="Добавление пациента"
+            Style="{StaticResource TBlockClassic}"/>
+        <Border
+            Padding="30 30 90 30"
+            HorizontalAlignment="Center"
+            Style="{StaticResource StBorderBio}">
+            
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <StackPanel>
+                <StackPanel
+                        Orientation="Horizontal">
+                    <TextBlock
+                        Text="Фамилия:"
+                        Style="{StaticResource TBlockClassic}"/>
+                    <TextBox
+                        Name="TbLastName"
+                        MaxLength="35"
+                        Style="{StaticResource TBoxBioP}"/>
+                </StackPanel>
+                <StackPanel
+                        Orientation="Horizontal">
+                    <TextBlock
+                        Text="Имя:"
+                        Style="{StaticResource TBlockClassic}"/>
+                    <TextBox
+                        Name="TbName"
+                        MaxLength="30"
+                        Style="{StaticResource TBoxBioP}"/>
+                </StackPanel>
+                <StackPanel
+                        Orientation="Horizontal">
+                    <TextBlock
+                        Text="Отчество:"
+                        Style="{StaticResource TBlockClassic}"/>
+                    <TextBox
+                        Name="TbMiddleName"
+                        MaxLength="35"
+                        Style="{StaticResource TBoxBioP}"/>
+                </StackPanel>
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <TextBlock
+                        Text="Дата рождения:"
+                        Style="{StaticResource TBlockClassic}"/>
+                        <DatePicker
+                        Name="DpBirthdate"
+                        BorderBrush="Transparent"
+                        Margin="5"
+                        FontFamily="Comic Sans MS"
+                        FontSize="14"
+                        Background="Transparent">
+                        </DatePicker>
+                    </StackPanel>
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <TextBlock
+                        Text="ИИН:"
+                        Style="{StaticResource TBlockClassic}"/>
+                        <TextBox
+                        Name="TbIEN"
+                        MaxLength="10"
+                        Style="{StaticResource TBoxBioP}"/>
+                    </StackPanel>
+                    <StackPanel
+                        Orientation="Horizontal">
+                    <TextBlock
+                        Text="Паспорт:"
+                        Style="{StaticResource TBlockClassic}"/>
+                    <TextBox
+                        Name="TbPassportS"
+                        MaxLength="4"
+                        Style="{StaticResource TBoxBioP}"/>
+                    <TextBox
+                        Name="TbPassportN"
+                        MaxLength="6"
+                        Style="{StaticResource TBoxBioP}"/>
+                </StackPanel>
+                <StackPanel
+                        Orientation="Horizontal">
+                    <TextBlock
+                        Text="Полис:"
+                        Style="{StaticResource TBlockClassic}"/>
+                    <TextBox
+                        Style="{StaticResource TBoxBioP}"/>
+                    <TextBox
+                        Style="{StaticResource TBoxBioP}"/>
+                </StackPanel>
+                
+            </StackPanel>
+            <StackPanel>
+                <StackPanel
+                        Orientation="Horizontal">
+                    <TextBlock
+                        Text="Login:"
+                        Style="{StaticResource TBlockClassic}"/>
+                    <TextBox
+                        Style="{StaticResource TBoxBioP}"/>
+                </StackPanel>
+                <StackPanel
+                        Orientation="Horizontal">
+                    <TextBlock
+                        Text="Password:"
+                        Style="{StaticResource TBlockClassic}"/>
+                    <TextBox
+                        Style="{StaticResource TBoxBioP}"/>
+                </StackPanel>
+                <StackPanel
+                        Orientation="Horizontal">
+                    <TextBlock
+                        Text="Email:"
+                        Style="{StaticResource TBlockClassic}"/>
+                    <TextBox
+                        Style="{StaticResource TBoxBioP}"/>
+                </StackPanel>
+                <StackPanel
+                        Orientation="Horizontal">
+                    <TextBlock
+                        Text="Телефон:"
+                        Style="{StaticResource TBlockClassic}"/>
+                    <TextBox
+                        Style="{StaticResource TBoxBioP}"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        </Border>
+    </Grid>
+</Page>

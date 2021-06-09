@@ -15,11 +15,17 @@ namespace TaskMasterMobilePolivanov.DataBaseF
     public partial class OrderComplate
     {
         public int Id { get; set; }
-        public Nullable<int> IdOrder { get; set; }
+        public Nullable<int> IdOreder { get; set; }
         public Nullable<int> IdUser { get; set; }
         public Nullable<System.DateTime> DateComplate { get; set; }
+        public Nullable<int> IdAnalizator { get; set; }
+        public Nullable<int> IdStatus { get; set; }
+        public Nullable<bool> Accepted { get; set; }
+        public Nullable<double> Result { get; set; }
     
+        public virtual Analizator Analizator { get; set; }
         public virtual OrderInfo OrderInfo { get; set; }
+        public virtual Status Status { get; set; }
         public virtual UserLab UserLab { get; set; }
     }
 }
