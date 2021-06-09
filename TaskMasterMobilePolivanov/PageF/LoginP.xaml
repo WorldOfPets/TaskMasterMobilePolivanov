@@ -46,11 +46,25 @@
                             Style="{StaticResource TBlockClassic}"
                             Text="Password:"/>
                         <PasswordBox
+                            Visibility="Visible"
+                            Password="123"
                             Name="PbPassword"
-                            Margin="5 5 10 5"
+                            Margin="5"
                             BorderBrush="#FF498C51"
-                            Width="150"/>
-            </StackPanel>
+                            Width="120"/>
+                        <TextBox
+                            Visibility="Collapsed"
+                            Width="120"
+                            Name="TbPasswor"
+                            Style="{StaticResource TBoxClassic}"/>
+                        <Button 
+                            ToolTip="Показать пароль"
+                            Click="BtnPassShow_Click"
+                            Name="BtnPassShow"
+                            Margin="0 5 10 5"
+                            Content="✔"
+                            Style="{StaticResource StyleBtnMain}"/>
+                    </StackPanel>
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal">

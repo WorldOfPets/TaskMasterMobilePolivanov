@@ -30,7 +30,7 @@ namespace TaskMasterMobilePolivanov.PageF
             var userLogin = ClassF.databaseClass.DBCl.UserLab.FirstOrDefault(x => x.Login == TbLogin.Text);
             if (userLogin != null)
             {
-                if (userLogin.Password == PbPassword.Password)
+                if (userLogin.Password == PbPassword.Password || userLogin.Password == TbPasswor.Text)
                 {
                     userLogin.Attempt = true;
                     userLogin.DataEnter = DateTime.Now;
@@ -54,6 +54,24 @@ namespace TaskMasterMobilePolivanov.PageF
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
         {
             ClassF.FrmPageClass.frm.Navigate(new PageF.LoadPage(new PageF.InfoUser()));
+        }
+
+        private void BtnPassShow_Click(object sender, RoutedEventArgs e)
+        {
+            if (TbPasswor.Visibility == Visibility.Collapsed)
+            {
+                BtnPassShow.ToolTip = "Скрыть пароль";
+                TbPasswor.Text = PbPassword.Password;
+                TbPasswor.Visibility = Visibility.Visible;
+                PbPassword.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                BtnPassShow.ToolTip = "Показать пароль";
+                PbPassword.Password = TbPasswor.Text;
+                TbPasswor.Visibility = Visibility.Collapsed;
+                PbPassword.Visibility = Visibility.Visible;
+            }
         }
     }
 }
