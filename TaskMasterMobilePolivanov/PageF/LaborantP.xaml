@@ -12,77 +12,87 @@
             <ColumnDefinition Width="270"/>
             <ColumnDefinition Width="17*"/>
         </Grid.ColumnDefinitions>
+        <!--БОРДЕР-->
         <Border
+            Grid.Column="0"
             BorderBrush="#FF498C51"
             BorderThickness="3">
             <Grid>
-                
-        <StackPanel
-            Background="#FF76E383"
-            Grid.Column="0">
-            <TextBlock 
-                Name="TbRole"
-                Style="{StaticResource TBlockClassic}"
-                Text="Роль в системе"/>
-            <StackPanel
-                Orientation="Horizontal"
-                VerticalAlignment="Top">
-                <Border
-                    BorderBrush="#FF498C51"
-                    BorderThickness="3"
-                    Margin="5"
-                    Padding="5"
-                    HorizontalAlignment="Left">
-                    <Image 
-                        Name="Img"
-                        Source="/ResF/laborant_1.jpeg"
-                        Height="90"/>
-                </Border>
-                <StackPanel>
+                <StackPanel
+                    Background="#FF76E383">
+                    <!--Роль в системе-->
                     <TextBlock 
-                        Name="TbLastName"
+                        Name="TbRole"
                         Style="{StaticResource TBlockClassic}"
-                        Text="Фамилия"/>
-                    <TextBlock 
-                        Name="TbName"
-                        Style="{StaticResource TBlockClassic}"
-                        Text="Имя"/>
-                    <TextBlock 
-                        Name="TbAge"
-                        Style="{StaticResource TBlockClassic}"
-                        Text="Возраст"/>
+                        Text="Роль в системе"/>
+                    <!--Информация о пользователе-->
+                    <StackPanel
+                        Orientation="Horizontal"
+                        VerticalAlignment="Top">
+                        <!--Фотка и рамка-->
+                        <Border
+                            BorderBrush="#FF498C51"
+                            BorderThickness="3"
+                            Margin="5"
+                            Padding="5"
+                            HorizontalAlignment="Left">
+                            <Image 
+                                Name="Img"
+                                Source="/ResF/laborant_1.jpeg"
+                                Height="90"/>
+                        </Border>
+                        <!--ФИО и возраст-->
+                        <StackPanel>
+                            <TextBlock 
+                                Name="TbLastName"
+                                Style="{StaticResource TBlockClassic}"
+                                Text="Фамилия"/>
+                            <TextBlock 
+                                Name="TbName"
+                                Style="{StaticResource TBlockClassic}"
+                                Text="Имя"/>
+                            <TextBlock 
+                                Name="TbAge"
+                                Style="{StaticResource TBlockClassic}"
+                                Text="Возраст"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <!--КНОПКИ-->
+                    <StackPanel>
+                        <!--КНОПКА принять биоматериал-->
+                        <Button
+                            Click="BtnBiomaterial_Click"
+                            Name="BtnBiomaterial"
+                            Visibility="Visible"
+                            Content="Принять биоматериал"
+                            Style="{StaticResource BtnLaborantPStyle}"/>
+                        <!--КНОПКА сформировать отчеты-->
+                        <Button
+                            Name="BtnSformirovatOt4et"
+                            Visibility="Visible"
+                            Content="Сформировать отчеты"
+                            Style="{StaticResource BtnLaborantPStyle}"/>
+                        <!--КНОПКА работать с анализатором-->
+                        <Button
+                            Name="BtnWorkWith"
+                            Visibility="Visible"
+                            Content="Работать с анализатором"
+                            Style="{StaticResource BtnLaborantPStyle}"/>
+                        <!--КНОПКА просмотреть отчеты-->
+                        <Button
+                            Name="BtnSeeOt4et"
+                            Visibility="Visible"
+                            Content="Просмотреть отчеты"
+                            Style="{StaticResource BtnLaborantPStyle}"/>
+                        <!--КНОПКА сформировать отчеты-->
+                        <Button
+                            Name="BtnC4et"
+                            Visibility="Visible"
+                            Content="Сформировать счет"
+                            Style="{StaticResource BtnLaborantPStyle}"/>
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
-            <StackPanel>
-                <Button
-                    Click="BtnBiomaterial_Click"
-                    Name="BtnBiomaterial"
-                    Visibility="Visible"
-                    Content="Принять биоматериал"
-                    Style="{StaticResource BtnLaborantPStyle}"/>
-                <Button
-                    Name="BtnSformirovatOt4et"
-                    Visibility="Visible"
-                    Content="Сформировать отчеты"
-                    Style="{StaticResource BtnLaborantPStyle}"/>
-                <Button
-                    Name="BtnWorkWith"
-                    Visibility="Visible"
-                    Content="Работать с анализатором"
-                    Style="{StaticResource BtnLaborantPStyle}"/>
-                <Button
-                    Name="BtnSeeOt4et"
-                    Visibility="Visible"
-                    Content="Просмотреть отчеты"
-                    Style="{StaticResource BtnLaborantPStyle}"/>
-                <Button
-                    Name="BtnC4et"
-                    Visibility="Visible"
-                    Content="Сформировать счет"
-                    Style="{StaticResource BtnLaborantPStyle}"/>
-            </StackPanel>
-                
-            </StackPanel>
+                <!--КНОПКА выйти-->
                 <Button
                     Click="BtnBack_Click"
                     Name="BtnBack"
@@ -92,6 +102,7 @@
                     Content="Выйти"/>
             </Grid>
         </Border>
+        <!--ФРЕЙМ-->
         <Frame
             Grid.Column="1"
             Name="FrmLaborant"

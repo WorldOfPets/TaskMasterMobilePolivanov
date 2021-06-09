@@ -10,6 +10,7 @@
       Title="LoadPage">
 
     <Grid>
+        <!--ГИФКА загрузки-->
         <Image 
             Width="70"
             gif:ImageBehavior.AnimatedSource="/ResF/loader.gif"/>

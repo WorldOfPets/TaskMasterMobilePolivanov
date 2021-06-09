@@ -14,37 +14,45 @@
             <RowDefinition Height="397*"/>
         </Grid.RowDefinitions>
         <Grid
-                Grid.Row="0">
-                <StackPanel
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center">
-                    <TextBox
-                        Name="TbSearch"
-                        FontSize="16"
-                        Style="{StaticResource TBoxClassic}"
-                        Margin="10"
-                        Width="150"/>
-                    <Button
-                        Click="BtnSearch_Click"
-                        Name="BtnSearch"
-                        Style="{StaticResource BtnClassic}"
-                        Content="Search Login"/>
-                </StackPanel>
+            Grid.Row="0">
+            <!--Поиск по логину-->
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+                <TextBox
+                    Name="TbSearch"
+                    FontSize="16"
+                    Style="{StaticResource TBoxClassic}"
+                    Margin="10"
+                    Width="150"/>
                 <Button
-                    Click="Button_Click"
-                    HorizontalAlignment="Right"
+                    Click="BtnSearch_Click"
+                    Name="BtnSearch"
                     Style="{StaticResource BtnClassic}"
-                    Content="Back"/>
-            </Grid>
-
+                    Content="Search Login"/>
+            </StackPanel>
+            <!--КНОПКА назад-->
+            <Button
+                Click="Button_Click"
+                HorizontalAlignment="Right"
+                Style="{StaticResource BtnClassic}"
+                Content="Back"/>
+        </Grid>
+        <!--ДАТАГРИД для вывода пользователей-->
         <DataGrid 
+            FontFamily="Comic Sans MS"
             MaxHeight="900"
             Grid.Row="1"
             IsReadOnly="True"
             AutoGenerateColumns="False"
             Name="DataUser"
             Margin="10">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow" >
+                    <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                </Style>
+            </DataGrid.RowStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Date" Binding="{Binding DataEnter}" Width="*"/>
                 <DataGridTextColumn Header="Login" Binding="{Binding Login}" Width="*"/>

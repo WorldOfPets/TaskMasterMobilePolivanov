@@ -70,5 +70,14 @@ namespace TaskMasterMobilePolivanov.PageF
         {
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnBiomaterial_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
