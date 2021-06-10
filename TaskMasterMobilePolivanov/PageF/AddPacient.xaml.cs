@@ -108,9 +108,21 @@ namespace TaskMasterMobilePolivanov.PageF
                     tB.BorderBrush = Brushes.Red;
                 }
             }
-            else if (tB.Name == TbPoliceNumber.Name || tB.Name == TbPassportN.Name || tB.Name == TbPassportS.Name || tB.Name == TbNumberPhone.Name || tB.Name == TbIEN.Name)
+            else if (tB.Name == TbPoliceNumber.Name || tB.Name == TbPassportN.Name || tB.Name == TbPassportS.Name || tB.Name == TbIEN.Name)
             {
                 if (tB.Text.Length == tB.MaxLength)
+                {
+                    var bc = new BrushConverter();
+                    tB.BorderBrush = (Brush)bc.ConvertFrom("#FF498C51");
+                }
+                else
+                {
+                    tB.BorderBrush = Brushes.Red;
+                }
+            }
+            else if (tB.Name == TbNumberPhone.Name)
+            {
+                if (tB.Text.Length >= 11)
                 {
                     var bc = new BrushConverter();
                     tB.BorderBrush = (Brush)bc.ConvertFrom("#FF498C51");
