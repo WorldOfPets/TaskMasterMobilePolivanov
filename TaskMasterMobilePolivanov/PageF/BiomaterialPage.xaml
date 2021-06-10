@@ -78,7 +78,8 @@
                             Height="162"
                             Name="DataGridUser"
                             Width="240"
-                            Margin="5">
+                            Margin="5"
+                            AlternatingRowBackground="#FF498C51">
                             <DataGrid.RowStyle>
                                 <Style TargetType="DataGridRow">
                                     <EventSetter Event="Selected" Handler="DataGridRow_Selected"/>

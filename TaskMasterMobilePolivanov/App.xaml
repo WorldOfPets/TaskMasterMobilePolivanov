@@ -51,6 +51,15 @@
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
         </Style>
+        <Style TargetType="TextBox" x:Key="TBoxPatient">
+            <Setter Property="BorderBrush" Value="Red"/>
+            <Setter Property="BorderThickness" Value="0 0 0 2"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="MinWidth" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
         <!--Стандартный стиль для ТЕКСТБЛОКА-->
         <Style TargetType="TextBlock" x:Key="TBlockClassic">
             <Setter Property="FontSize" Value="16"/>
@@ -87,6 +96,11 @@
             <Setter Property="Margin" Value="0 5 5 5"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <!--COMBOBOX style-->
+        <Style TargetType="ComboBoxItem" x:Key="CmbStyle">
+            <Setter Property="Background" Value="#FF76E383"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
         </Style>
     </Application.Resources>
 </Application>

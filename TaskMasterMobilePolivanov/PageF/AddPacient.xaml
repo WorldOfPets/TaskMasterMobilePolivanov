@@ -15,7 +15,7 @@
             Text="Добавление пациента"
             Style="{StaticResource TBlockClassic}"/>
         <Border
-            Padding="30 30 90 30"
+            Padding="30"
             HorizontalAlignment="Center"
             Style="{StaticResource StBorderBio}">
             
@@ -30,9 +30,10 @@
                         Text="Фамилия:"
                         Style="{StaticResource TBlockClassic}"/>
                     <TextBox
+                        TextChanged="TbLastName_TextChanged"
                         Name="TbLastName"
-                        MaxLength="35"
-                        Style="{StaticResource TBoxBioP}"/>
+                        MaxLength="20"
+                        Style="{StaticResource TBoxPatient}"/>
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal">
@@ -40,9 +41,10 @@
                         Text="Имя:"
                         Style="{StaticResource TBlockClassic}"/>
                     <TextBox
+                        TextChanged="TbLastName_TextChanged"
                         Name="TbName"
-                        MaxLength="30"
-                        Style="{StaticResource TBoxBioP}"/>
+                        MaxLength="20"
+                        Style="{StaticResource TBoxPatient}"/>
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal">
@@ -50,23 +52,41 @@
                         Text="Отчество:"
                         Style="{StaticResource TBlockClassic}"/>
                     <TextBox
+                        TextChanged="TbLastName_TextChanged"
                         Name="TbMiddleName"
-                        MaxLength="35"
-                        Style="{StaticResource TBoxBioP}"/>
+                        MaxLength="20"
+                        Style="{StaticResource TBoxPatient}"/>
                 </StackPanel>
                     <StackPanel
                         Orientation="Horizontal">
                         <TextBlock
                         Text="Дата рождения:"
                         Style="{StaticResource TBlockClassic}"/>
-                        <DatePicker
-                        Name="DpBirthdate"
-                        BorderBrush="Transparent"
-                        Margin="5"
-                        FontFamily="Comic Sans MS"
-                        FontSize="14"
-                        Background="Transparent">
-                        </DatePicker>
+                        <Grid>
+                            <TextBox 
+                                Name="TbData"
+                                Padding="5 6 0 0"
+                                Text="21.02.2021"
+                                Style="{StaticResource TBoxPatient}"/>
+                            <Button
+                                Content="*"
+                                Height="20"
+                                Width="20"
+                                Margin="5 5 10 10"
+                                HorizontalAlignment="Right"
+                                Style="{StaticResource StyleBtnMain}"/>
+                            <DatePicker
+                                CalendarClosed="DpBirthdate_CalendarClosed"
+                            Opacity="0"
+                            Name="DpBirthdate"
+                            BorderBrush="Transparent"
+                            Margin="5"
+                            FontFamily="Comic Sans MS"
+                            FontSize="14"
+                            Background="Transparent">
+                            </DatePicker>
+
+                        </Grid>
                     </StackPanel>
                     <StackPanel
                         Orientation="Horizontal">
@@ -74,9 +94,10 @@
                         Text="ИИН:"
                         Style="{StaticResource TBlockClassic}"/>
                         <TextBox
+                            TextChanged="TbLastName_TextChanged"
                         Name="TbIEN"
                         MaxLength="10"
-                        Style="{StaticResource TBoxBioP}"/>
+                        Style="{StaticResource TBoxPatient}"/>
                     </StackPanel>
                     <StackPanel
                         Orientation="Horizontal">
@@ -84,23 +105,44 @@
                         Text="Паспорт:"
                         Style="{StaticResource TBlockClassic}"/>
                     <TextBox
+                        TextChanged="TbLastName_TextChanged"
                         Name="TbPassportS"
                         MaxLength="4"
-                        Style="{StaticResource TBoxBioP}"/>
+                        Style="{StaticResource TBoxPatient}"/>
                     <TextBox
+                        TextChanged="TbLastName_TextChanged"
                         Name="TbPassportN"
                         MaxLength="6"
-                        Style="{StaticResource TBoxBioP}"/>
+                        Style="{StaticResource TBoxPatient}"/>
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal">
                     <TextBlock
                         Text="Полис:"
                         Style="{StaticResource TBlockClassic}"/>
-                    <TextBox
-                        Style="{StaticResource TBoxBioP}"/>
-                    <TextBox
-                        Style="{StaticResource TBoxBioP}"/>
+
+                        <Grid>
+                            <TextBox
+                                    Name="TbCmb"
+                                    Padding="0 2 0 0"
+                                    TextAlignment="Center"
+                                    FontSize="14"
+                                    Text="Тип"
+                                    Style="{StaticResource TBoxPatient}"/>
+                            <ComboBox
+                                Margin="5"
+                                    DropDownClosed="CmbPolice_DropDownClosed"
+                                    ItemContainerStyle="{StaticResource CmbStyle}"
+                                    Opacity="0"
+                                    Name="CmbPolice"
+                                    Width="45">
+                            </ComboBox>
+                        </Grid>
+                        <TextBox
+                            TextChanged="TbLastName_TextChanged"
+                            Name="TbPoliceNumber"
+                            MaxLength="8"
+                        Style="{StaticResource TBoxPatient}"/>
                 </StackPanel>
                 
             </StackPanel>
@@ -111,7 +153,10 @@
                         Text="Login:"
                         Style="{StaticResource TBlockClassic}"/>
                     <TextBox
-                        Style="{StaticResource TBoxBioP}"/>
+                        TextChanged="TbLastName_TextChanged"
+                        Name="TbLogin"
+                        MaxLength="30"
+                        Style="{StaticResource TBoxPatient}"/>
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal">
@@ -119,7 +164,10 @@
                         Text="Password:"
                         Style="{StaticResource TBlockClassic}"/>
                     <TextBox
-                        Style="{StaticResource TBoxBioP}"/>
+                        TextChanged="TbLastName_TextChanged"
+                        Name="TbPassword"
+                        MaxLength="30"
+                        Style="{StaticResource TBoxPatient}"/>
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal">
@@ -127,7 +175,10 @@
                         Text="Email:"
                         Style="{StaticResource TBlockClassic}"/>
                     <TextBox
-                        Style="{StaticResource TBoxBioP}"/>
+                        TextChanged="TbLastName_TextChanged"
+                        Name="TbEmail"
+                        MaxLength="30"
+                        Style="{StaticResource TBoxPatient}"/>
                 </StackPanel>
                 <StackPanel
                         Orientation="Horizontal">
@@ -135,9 +186,20 @@
                         Text="Телефон:"
                         Style="{StaticResource TBlockClassic}"/>
                     <TextBox
-                        Style="{StaticResource TBoxBioP}"/>
+                        TextChanged="TbLastName_TextChanged"
+                        Name="TbNumberPhone"
+                        MaxLength="13"
+                        Style="{StaticResource TBoxPatient}"/>
                 </StackPanel>
-            </StackPanel>
+                    
+                    <Button
+                        Name="BtnAddPacietn"
+                        Click="BtnAddPacietn_Click"
+                        Margin="0 70 0 0"
+                        VerticalAlignment="Bottom"
+                        Content="Добавить пациента"
+                        Style="{StaticResource BtnClassic}"/>
+                </StackPanel>
         </StackPanel>
         </Border>
     </Grid>
