@@ -71,7 +71,7 @@
           <Property Name="IdAnalizator" Type="int" />
           <Property Name="IdStatus" Type="int" />
           <Property Name="Accepted" Type="bit" />
-          <Property Name="Result" Type="float" />
+          <Property Name="Result" Type="decimal" Precision="10" Scale="6" />
         </EntityType>
         <EntityType Name="OrderInfo">
           <Key>
@@ -552,7 +552,7 @@
           <Property Name="IdAnalizator" Type="Int32" />
           <Property Name="IdStatus" Type="Int32" />
           <Property Name="Accepted" Type="Boolean" />
-          <Property Name="Result" Type="Double" />
+          <Property Name="Result" Type="Decimal" Precision="10" Scale="6" />
           <NavigationProperty Name="Analizator" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_Analizator" FromRole="OrderComplate" ToRole="Analizator" />
           <NavigationProperty Name="OrderInfo" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_OrderInfo1" FromRole="OrderComplate" ToRole="OrderInfo" />
           <NavigationProperty Name="Status" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_Status" FromRole="OrderComplate" ToRole="Status" />

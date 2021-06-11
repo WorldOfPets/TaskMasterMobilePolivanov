@@ -149,6 +149,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageF\CreateOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageF\InfoUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +176,9 @@
     </Compile>
     <Compile Include="PageF\BiomaterialPage.xaml.cs">
       <DependentUpon>BiomaterialPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageF\CreateOrder.xaml.cs">
+      <DependentUpon>CreateOrder.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageF\InfoUser.xaml.cs">
       <DependentUpon>InfoUser.xaml</DependentUpon>

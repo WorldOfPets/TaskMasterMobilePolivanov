@@ -9,6 +9,12 @@
       Title="BiomaterialPage">
 
     <Grid>
+        <TextBlock
+            VerticalAlignment="Top"
+            FontSize="20"
+            HorizontalAlignment="Center"
+            Text="Принятие биоматериала"
+            Style="{StaticResource TBlockClassic}"/>
         <Border
             Margin="5"
             Padding="0"

@@ -20,6 +20,7 @@ namespace TaskMasterMobilePolivanov.PageF
     /// </summary>
     public partial class LaborantP : Page
     {
+        public static int LaborantID { get; set; }
         public LaborantP(int ID)
         {
             InitializeComponent();
@@ -45,6 +46,8 @@ namespace TaskMasterMobilePolivanov.PageF
             if (UserInSys.IdRole == 1) { Img.Source = new BitmapImage(image1); BtnC4et.Visibility = Visibility.Collapsed; BtnSeeOt4et.Visibility = Visibility.Collapsed; BtnWorkWith.Visibility = Visibility.Collapsed; }
             else if (UserInSys.IdRole == 2) { Img.Source = new BitmapImage(image2); BtnC4et.Visibility = Visibility.Collapsed; BtnSeeOt4et.Visibility = Visibility.Collapsed; }
             else if (UserInSys.IdRole == 3) { Img.Source = new BitmapImage(image3); BtnBiomaterial.Visibility = Visibility.Collapsed; BtnSformirovatOt4et.Visibility = Visibility.Collapsed; BtnWorkWith.Visibility = Visibility.Collapsed; }
+
+            LaborantID = ID;
         }
 
 
@@ -56,6 +59,11 @@ namespace TaskMasterMobilePolivanov.PageF
         private void BtnBiomaterial_Click(object sender, RoutedEventArgs e)
         {
             ClassF.FrmPageClass.frmLobarant.Navigate(new BiomaterialPage());
+        }
+
+        private void BtnSformirovatOt4et_Click(object sender, RoutedEventArgs e)
+        {
+            ClassF.FrmPageClass.frmLobarant.Navigate(new CreateOrder());
         }
     }
 }

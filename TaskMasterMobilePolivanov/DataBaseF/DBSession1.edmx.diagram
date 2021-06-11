@@ -5,21 +5,21 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="7d1ab01b62fd41c882fb71f76c9d853e" Name="Diagram1">
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.Analizator" Width="1.5" PointX="6" PointY="8.375" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.InsuranceCompany" Width="1.5" PointX="3" PointY="0.75" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.InsurancePoliceType" Width="1.5" PointX="1.5" PointY="11.625" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.InsurancePolicy" Width="1.5" PointX="1.5" PointY="14.375" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.Invoicing" Width="1.5" PointX="5.25" PointY="1.875" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.LabServices" Width="1.5" PointX="3" PointY="18.75" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.OrderComplate" Width="1.5" PointX="8.25" PointY="4.375" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.OrderInfo" Width="1.5" PointX="6" PointY="14.25" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.Pacient" Width="1.5" PointX="3.75" PointY="13" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.PacientLabService" Width="1.5" PointX="6" PointY="17.125" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.Role" Width="1.5" PointX="0.75" PointY="5.25" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.Status" Width="1.5" PointX="6" PointY="10.75" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.875" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.UserLab" Width="1.5" PointX="3" PointY="4.125" />
-        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.UserLabServices" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.Analizator" Width="1.5" PointX="6" PointY="9.375" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.InsuranceCompany" Width="1.5" PointX="3" PointY="9.75" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.InsurancePoliceType" Width="1.5" PointX="1.5" PointY="18.625" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.InsurancePolicy" Width="1.5" PointX="1.5" PointY="15.5" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.Invoicing" Width="1.5" PointX="5.25" PointY="5.875" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.LabServices" Width="1.5" PointX="3" PointY="1.75" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.OrderComplate" Width="1.5" PointX="8.25" PointY="5.375" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.OrderInfo" Width="1.5" PointX="6" PointY="15.375" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.Pacient" Width="1.5" PointX="3.75" PointY="14.125" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.PacientLabService" Width="1.5" PointX="6" PointY="12.25" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.Role" Width="1.5" PointX="0.75" PointY="6.25" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.Status" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="2" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.UserLab" Width="1.5" PointX="3" PointY="5.125" />
+        <EntityTypeShape EntityType="Session1_TaskMaster_PolivanovModel.UserLabServices" Width="1.5" PointX="5.25" PointY="3.125" />
         <AssociationConnector Association="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_Analizator" />
         <AssociationConnector Association="Session1_TaskMaster_PolivanovModel.FK_Invoicing_InsuranceCompany" />
         <AssociationConnector Association="Session1_TaskMaster_PolivanovModel.FK_InsurancePolicy_InsurancePoliceType" />

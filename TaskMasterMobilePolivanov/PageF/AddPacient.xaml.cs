@@ -108,8 +108,9 @@ namespace TaskMasterMobilePolivanov.PageF
                     tB.BorderBrush = Brushes.Red;
                 }
             }
-            else if (tB.Name == TbPoliceNumber.Name || tB.Name == TbPassportN.Name || tB.Name == TbPassportS.Name || tB.Name == TbIEN.Name)
+            else if (tB.Name == TbPoliceNumber.Name || tB.Name == TbPassportN.Name || tB.Name == TbPassportS.Name)
             {
+                tB.PreviewTextInput += new TextCompositionEventHandler(textBox_PreviewTextInput);
                 if (tB.Text.Length == tB.MaxLength)
                 {
                     var bc = new BrushConverter();
@@ -122,14 +123,51 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             else if (tB.Name == TbNumberPhone.Name)
             {
-                if (tB.Text.Length >= 11)
+                tB.PreviewTextInput += new TextCompositionEventHandler(textBox_PreviewTextInput);
+                tB.BorderBrush = Brushes.Red;
+                switch (tB.Text.Length)
                 {
-                    var bc = new BrushConverter();
-                    tB.BorderBrush = (Brush)bc.ConvertFrom("#FF498C51");
+                    case 2:
+                        tB.Text += "(";
+                        tB.Focus();
+                        tB.CaretIndex = tB.Text.Length;
+                        break;
+                    case 6:
+                        tB.Text += ") ";
+                        tB.Focus();
+                        tB.CaretIndex = tB.Text.Length;
+                        break;
+                    case 11:
+                        tB.Text += "-";
+                        tB.Focus();
+                        tB.CaretIndex = tB.Text.Length;
+                        break;
+                    case 14:
+                        tB.Text += "-";
+                        tB.Focus();
+                        tB.CaretIndex = tB.Text.Length;
+                        break;
+                    case 17:
+                        var bc = new BrushConverter();
+                        tB.BorderBrush = (Brush)bc.ConvertFrom("#FF498C51");
+                        break;
                 }
-                else
+            }
+            else if (tB.Name == TbIEN.Name)
+            {
+                tB.PreviewTextInput += new TextCompositionEventHandler(textBox_PreviewTextInput);
+                tB.BorderBrush = Brushes.Red;
+                switch(tB.Text.Length)
                 {
-                    tB.BorderBrush = Brushes.Red;
+                    case 2:
+                        tB.Text += "-";
+                        tB.Focus();
+                        tB.CaretIndex = tB.Text.Length;
+                        break;
+                    case 10:
+                        var bc = new BrushConverter();
+                        tB.BorderBrush = (Brush)bc.ConvertFrom("#FF498C51");
+                        break;
                 }
             }
             else if (tB.Text.Length >= 3)
@@ -140,6 +178,14 @@ namespace TaskMasterMobilePolivanov.PageF
             else
             {
                 tB.BorderBrush = Brushes.Red;
+            }
+        }
+
+        public void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
             }
         }
     }

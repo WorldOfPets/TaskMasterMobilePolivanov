@@ -68,9 +68,10 @@
                             Style="{StaticResource BtnLaborantPStyle}"/>
                         <!--КНОПКА сформировать отчеты-->
                         <Button
+                            Click="BtnSformirovatOt4et_Click"
                             Name="BtnSformirovatOt4et"
                             Visibility="Visible"
-                            Content="Сформировать отчеты"
+                            Content="Сформировать отчет"
                             Style="{StaticResource BtnLaborantPStyle}"/>
                         <!--КНОПКА работать с анализатором-->
                         <Button

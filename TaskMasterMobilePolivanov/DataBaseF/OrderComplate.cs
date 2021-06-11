@@ -21,7 +21,7 @@ namespace TaskMasterMobilePolivanov.DataBaseF
         public Nullable<int> IdAnalizator { get; set; }
         public Nullable<int> IdStatus { get; set; }
         public Nullable<bool> Accepted { get; set; }
-        public Nullable<double> Result { get; set; }
+        public Nullable<decimal> Result { get; set; }
     
         public virtual Analizator Analizator { get; set; }
         public virtual OrderInfo OrderInfo { get; set; }

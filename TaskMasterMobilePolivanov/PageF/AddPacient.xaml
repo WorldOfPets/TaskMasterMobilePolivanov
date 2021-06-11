@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TaskMasterMobilePolivanov.PageF"
       mc:Ignorable="d" 
-      d:DesignHeight="415" d:DesignWidth="570"
+      d:DesignHeight="415" d:DesignWidth="530"
       Title="AddPacient">
     <Grid>
         <TextBlock
@@ -186,9 +186,12 @@
                         Text="Телефон:"
                         Style="{StaticResource TBlockClassic}"/>
                     <TextBox
+                        Text="+"
+                        FontSize="12"
+                        Margin="0 5 0 5"
                         TextChanged="TbLastName_TextChanged"
                         Name="TbNumberPhone"
-                        MaxLength="13"
+                        MaxLength="17"
                         Style="{StaticResource TBoxPatient}"/>
                 </StackPanel>
                     
