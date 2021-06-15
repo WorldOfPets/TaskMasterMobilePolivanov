@@ -236,6 +236,7 @@
       <DependentUpon>DBSession1.edmx</DependentUpon>
       <LastGenOutput>DBSession1.cs</LastGenOutput>
     </Content>
+    <Resource Include="ResF\pngPlayWhite.png" />
     <Resource Include="ResF\res.png" />
     <Resource Include="ResF\logo.ico" />
     <Resource Include="ResF\laborant_1.jpeg" />

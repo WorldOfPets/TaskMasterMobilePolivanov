@@ -67,10 +67,17 @@
                         Text="Пациент и кровь:"
                         Style="{StaticResource TBlockClassic}"/>
                         <TextBox
-                        Name="TbPacient"
-                        Width="300"
+                            IsReadOnly="False"
+                            TextChanged="TbPacient_TextChanged"
+                            Name="TbPacient"
+                            Width="300"
                             BorderThickness="2"
-                        Style="{StaticResource TBoxBioP}"/>
+                            Style="{StaticResource TBoxBioP}"/>
+                        <Button 
+                            Click="Button_Click_1"
+                            ToolTip="Очистить результат"
+                            Content="X"
+                            Style="{StaticResource StyleBtnMain}"/>
                     </StackPanel>
                     <DataGrid
                         Width="450"
@@ -107,7 +114,7 @@
                                 Name="TbResult"
                                 TextChanged="TbResult_TextChanged"
                                 Width="80"
-                                Text="4.056789"
+                                Text="4,056789"
                                 Margin="0 0 0 10"
                                     Padding="0 8 0 0"
                                     TextAlignment="Center"
@@ -180,7 +187,13 @@
                                     Width="70">
                             </ComboBox>
                         </Grid>
-                        
+                        <TextBlock
+                        Text="Кол-во услуг:"
+                        Style="{StaticResource TBlockClassic}"/>
+                        <TextBlock
+                            Name="TbCountLabServ"
+                        Text="__"
+                        Style="{StaticResource TBlockClassic}"/>
                     </StackPanel>
                     <Grid>
                         

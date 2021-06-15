@@ -99,8 +99,6 @@ namespace TaskMasterMobilePolivanov.PageF
                 MessageBox.Show("Ошибка", "..::Error::..");
                 throw;
             }
-            
-
         }
 
         private void TbBarcode_TextChanged(object sender, TextChangedEventArgs e)

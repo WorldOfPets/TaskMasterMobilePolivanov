@@ -27,7 +27,60 @@
             MouseDown="StackPanel_MouseDown"
             Grid.Row="0"
             Background="#FF76E383">
-            <StackPanel
+            <Grid>
+                <Button
+                    Name="BtnSku4no"
+                    Visibility="Visible"
+                    Click="Button_Click_3"
+                    Width="70"
+                    Content="Скучно?"
+                    Margin="5"
+                    HorizontalAlignment="Left"
+                    Style="{StaticResource StyleBtnMain}"/>
+                <StackPanel
+                    Visibility="Collapsed"
+                    Name="StPanelPlayMusic"
+                    Orientation="Horizontal">
+                    <Grid>
+                        
+                        <Button
+                        Padding="0 -6 0 0"
+                        Margin="5"
+                        FontWeight="Light"
+                        FontSize="24"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource StyleBtnMain}">
+                        </Button>
+                        <Image 
+                            MouseLeftButtonDown="Image_MouseLeftButtonDown"
+                            Margin="5"
+                        Height="25"
+                        Width="25"
+                        Source="/ResF/pngPlayWhite.png"/>
+                    </Grid>
+                    <Button
+                    Padding="0 -6 -1 0"
+                    Margin="5"
+                    FontWeight="Light"
+                    FontSize="23"
+                    Click="Button_Click_5"
+                    Content="■"
+                    HorizontalAlignment="Left"
+                    Style="{StaticResource StyleBtnMain}"/>
+                <Button
+                    Padding="0 -7 0 0"
+                    Margin="5"
+                    FontSize="23"
+                    Click="Button_Click_4"
+                    Content="♫"
+                    HorizontalAlignment="Left"
+                    Style="{StaticResource StyleBtnMain}"/>
+                    <TextBlock 
+                        Text="Path"
+                        Name="musicPath"
+                        Style="{StaticResource TBlockClassic}"/>
+                </StackPanel>
+                <StackPanel
                 Orientation="Horizontal"
                 HorizontalAlignment="Right">
                 <Button 
@@ -43,6 +96,7 @@
                     Style="{StaticResource StyleBtnMain}"
                     Content="X"/>
             </StackPanel>
+            </Grid>
         </StackPanel>
         <Border
             Name="BorderMain"
