@@ -1,0 +1,44 @@
+﻿<Page x:Class="TaskMasterMobilePolivanov.PageF.SeeOrderComplate"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TaskMasterMobilePolivanov.PageF"
+      mc:Ignorable="d" 
+      d:DesignHeight="415" d:DesignWidth="530"
+      Title="SeeOrderComplate">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="376*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            VerticalAlignment="Top"
+            FontSize="20"
+            HorizontalAlignment="Center"
+            Text="Просмотр очтетов"
+            Style="{StaticResource TBlockClassic}" Margin="176,5,176,0"/>
+        <DataGrid
+            Grid.Row="1"
+            Name="DataGridOrderComplate"
+            Margin="5"
+            IsReadOnly="True"
+            AutoGenerateColumns="False"
+            AlternatingRowBackground="#FF498C51" Grid.RowSpan="2">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="Selected" Handler="DataGridRow_Selected"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Пациент" Width="*" Binding="{Binding pacientFullName}"/>
+                <DataGridTextColumn Header="Лаборант" Width="*" Binding="{Binding laborantFullName}"/>
+                <DataGridTextColumn Header="Общая стоимость" Width="*" Binding="{Binding FullPrice}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

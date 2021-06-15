@@ -81,6 +81,7 @@
                             Style="{StaticResource BtnLaborantPStyle}"/>
                         <!--КНОПКА просмотреть отчеты-->
                         <Button
+                            Click="BtnSeeOt4et_Click"
                             Name="BtnSeeOt4et"
                             Visibility="Visible"
                             Content="Просмотреть отчеты"

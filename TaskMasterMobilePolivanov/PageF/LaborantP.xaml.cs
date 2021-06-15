@@ -65,5 +65,10 @@ namespace TaskMasterMobilePolivanov.PageF
         {
             ClassF.FrmPageClass.frmLobarant.Navigate(new CreateOrder());
         }
+
+        private void BtnSeeOt4et_Click(object sender, RoutedEventArgs e)
+        {
+            ClassF.FrmPageClass.frmLobarant.Navigate(new SeeOrderComplate());
+        }
     }
 }

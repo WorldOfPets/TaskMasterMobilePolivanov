@@ -122,6 +122,7 @@
     <Compile Include="DataBaseF\PacientLabService.cs">
       <DependentUpon>DBSession1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataBaseF\PartialOrderComplate.cs" />
     <Compile Include="DataBaseF\Role.cs">
       <DependentUpon>DBSession1.tt</DependentUpon>
     </Compile>
@@ -169,6 +170,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageF\SeeOrderComplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PageF\AddPacient.xaml.cs">
@@ -191,6 +196,9 @@
     </Compile>
     <Compile Include="PageF\LoginP.xaml.cs">
       <DependentUpon>LoginP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageF\SeeOrderComplate.xaml.cs">
+      <DependentUpon>SeeOrderComplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
