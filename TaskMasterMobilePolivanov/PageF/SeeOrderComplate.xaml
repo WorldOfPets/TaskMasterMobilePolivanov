@@ -13,32 +13,63 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="376*"/>
         </Grid.RowDefinitions>
-
         <TextBlock
             Grid.Row="0"
             VerticalAlignment="Top"
             FontSize="20"
             HorizontalAlignment="Center"
             Text="Просмотр очтетов"
-            Style="{StaticResource TBlockClassic}" Margin="176,5,176,0"/>
-        <DataGrid
-            Grid.Row="1"
-            Name="DataGridOrderComplate"
-            Margin="5"
-            IsReadOnly="True"
-            AutoGenerateColumns="False"
-            AlternatingRowBackground="#FF498C51" Grid.RowSpan="2">
-            <DataGrid.RowStyle>
-                <Style TargetType="DataGridRow">
-                    <EventSetter Event="Selected" Handler="DataGridRow_Selected"/>
-                    <Setter Property="Background" Value="Transparent"/>
-                </Style>
-            </DataGrid.RowStyle>
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Пациент" Width="*" Binding="{Binding pacientFullName}"/>
-                <DataGridTextColumn Header="Лаборант" Width="*" Binding="{Binding laborantFullName}"/>
-                <DataGridTextColumn Header="Общая стоимость" Width="*" Binding="{Binding FullPrice}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+            Style="{StaticResource TBlockClassic}"/>
+        <Border
+            Margin="6"
+            CornerRadius="5"
+            BorderBrush="#FF498C51"
+            BorderThickness="3"
+            Grid.Row="1">
+            <Grid
+                Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="376*"/>
+                </Grid.RowDefinitions>
+                <StackPanel
+                    Orientation="Horizontal"
+                    Grid.Row="0">
+                    <TextBox 
+                        TextChanged="TbSearch_TextChanged"
+                        Name="TbSearch"
+                        HorizontalAlignment="Left"
+                        Width="150"
+                        Style="{StaticResource TBoxClassic}"/>
+                    <TextBox 
+                        Name="TbResultSearch"
+                        MinWidth="345"
+                        Style="{StaticResource TBoxBioP}"/>
+                </StackPanel>
+                <DataGrid 
+                    Grid.Row="1"
+                    Margin="1"
+                    BorderBrush="Transparent"
+                    BorderThickness="0"
+                    Name="DataGridOrderComplate"
+                    IsReadOnly="True"
+                    AutoGenerateColumns="False"
+                    AlternatingRowBackground="#FF498C51" Grid.RowSpan="2">
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick"/>
+                            <EventSetter Event="Selected" Handler="DataGridRow_Selected"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Пациент" Width="*" Binding="{Binding pacientFullName}"/>
+                        <DataGridTextColumn Header="Лаборант" Width="*" Binding="{Binding laborantFullName}"/>
+                        <DataGridTextColumn Header="Общая стоимость" Width="*" Binding="{Binding FullPrice}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            </Border>
     </Grid>
 </Page>

@@ -29,6 +29,18 @@ namespace TaskMasterMobilePolivanov.PageF
 
         private void DataGridRow_Selected(object sender, RoutedEventArgs e)
         {
+            var rowSelect = (DataGridRow)sender;
+            var contextSelect = rowSelect.DataContext as DataBaseF.OrderComplate;
+            TbResultSearch.Text = $"№{contextSelect.Id} Пациент: {contextSelect.OrderInfo.Pacient.LastName} {contextSelect.OrderInfo.Pacient.Name[0]}. Лаборант: {contextSelect.UserLab.LastName} {contextSelect.UserLab.Name[0]}.";
+        }
+
+        private void TbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataGridOrderComplate.ItemsSource = ClassF.databaseClass.DBCl.OrderComplate.Where(x => x.OrderInfo.Pacient.LastName.Contains(TbSearch.Text) || x.OrderInfo.Pacient.Name.Contains(TbSearch.Text) || x.UserLab.LastName.Contains(TbSearch.Text) || x.UserLab.Name.Contains(TbSearch.Text)).ToList();
+        }
+
+        private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
 
         }
     }
