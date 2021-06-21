@@ -30,20 +30,33 @@
                 Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="35"/>
-                    <RowDefinition Height="376*"/>
+                    <RowDefinition Height="375*"/>
                 </Grid.RowDefinitions>
+                <Frame 
+                    NavigationUIVisibility="Hidden"
+                    Name="FrmOrder"
+                    Grid.RowSpan="2"/>
                 <StackPanel
                     Orientation="Horizontal"
                     Grid.Row="0">
-                    <TextBox 
-                        TextChanged="TbSearch_TextChanged"
-                        Name="TbSearch"
-                        HorizontalAlignment="Left"
-                        Width="150"
-                        Style="{StaticResource TBoxClassic}"/>
+                    <Grid>
+                        <TextBox 
+                            TextChanged="TbSearch_TextChanged"
+                            Name="TbSearch"
+                            HorizontalAlignment="Left"
+                            Width="100"
+                            Style="{StaticResource TBoxClassic}"/>
+                        <Button 
+                            Click="BtnBack_Click"
+                            Name="BtnBack"
+                            Visibility="Collapsed"
+                            Padding="0"
+                            Content="← Назад"
+                            Style="{StaticResource BtnLaborantPStyle}"/>
+                    </Grid>
                     <TextBox 
                         Name="TbResultSearch"
-                        MinWidth="345"
+                        MinWidth="390"
                         Style="{StaticResource TBoxBioP}"/>
                 </StackPanel>
                 <DataGrid 

@@ -170,6 +170,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageF\OrderInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageF\SeeOrderComplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -196,6 +200,9 @@
     </Compile>
     <Compile Include="PageF\LoginP.xaml.cs">
       <DependentUpon>LoginP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageF\OrderInfoPage.xaml.cs">
+      <DependentUpon>OrderInfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageF\SeeOrderComplate.xaml.cs">
       <DependentUpon>SeeOrderComplate.xaml</DependentUpon>

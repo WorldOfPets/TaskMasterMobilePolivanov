@@ -41,7 +41,16 @@ namespace TaskMasterMobilePolivanov.PageF
 
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            FrmOrder.Navigate(new OrderInfoPage());
+            BtnBack.Visibility = Visibility.Visible;
+            DataGridOrderComplate.Visibility = Visibility.Collapsed;
+        }
 
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            FrmOrder.Content = null;
+            BtnBack.Visibility = Visibility.Collapsed;
+            DataGridOrderComplate.Visibility = Visibility.Visible;
         }
     }
 }
