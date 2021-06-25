@@ -25,29 +25,40 @@ namespace TaskMasterMobilePolivanov.PageF
             InitializeComponent();
         }
 
-        private void BtnEnter_Click(object sender, RoutedEventArgs e)
+        private async void BtnEnter_Click(object sender, RoutedEventArgs e)
         {
-            var userLogin = ClassF.databaseClass.DBCl.UserLab.FirstOrDefault(x => x.Login == TbLogin.Text);
-            if (userLogin != null)
+            if (TbLogin.Text != "" && (PbPassword.Password != "" || TbPasswor.Text != ""))
             {
-                if (userLogin.Password == PbPassword.Password || userLogin.Password == TbPasswor.Text)
+                var userLogin = ClassF.databaseClass.DBCl.UserLab.FirstOrDefault(x => x.Login == TbLogin.Text);
+                if (userLogin != null)
                 {
-                    userLogin.Attempt = true;
-                    userLogin.DataEnter = DateTime.Now;
-                    ClassF.databaseClass.DBCl.SaveChanges();
-                    ClassF.FrmPageClass.frm.Navigate(new PageF.LoadPage(new PageF.LaborantP(userLogin.Id)));
+                    if (userLogin.Password == PbPassword.Password || userLogin.Password == TbPasswor.Text)
+                    {
+                        userLogin.Attempt = true;
+                        userLogin.DataEnter = DateTime.Now;
+                        ClassF.databaseClass.DBCl.SaveChanges();
+                        ClassF.FrmPageClass.frm.Navigate(new PageF.LoadPage(new PageF.LaborantP(userLogin.Id)));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неверный логин или пароль", "..::Error::..");
+                        userLogin.Attempt = false;
+                        userLogin.DataEnter = DateTime.Now;
+                        ClassF.databaseClass.DBCl.SaveChanges();
+                    }
                 }
-                else 
+                else
                 {
-                    MessageBox.Show("Неверный логин или пароль","..::Error::..");
-                    userLogin.Attempt = false;
-                    userLogin.DataEnter = DateTime.Now;
-                    ClassF.databaseClass.DBCl.SaveChanges();
+                    MessageBox.Show("Пользователь не найден.", "..::Error::..");
                 }
             }
-            else 
+            else
             {
-                MessageBox.Show("Пользователь не найден.", "..::Error::..");
+                ToolTip toolTip = new ToolTip();
+                toolTip.Content = "Не все поля заполнены!!!";
+                toolTip.IsOpen = true;
+                await Task.Delay(3000);
+                toolTip.IsOpen = false;
             }
         }
 

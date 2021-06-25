@@ -9,14 +9,19 @@
         d:DesignHeight="450" d:DesignWidth="800"
         MinHeight="450" 
         WindowState="Normal"
-        WindowStyle="None"
+        WindowStyle="None" 
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         MinWidth="800"
+        BorderBrush="Transparent"
+        BorderThickness="2"
+        ResizeMode="CanResizeWithGrip"
         Icon="/ResF/res.png">
     <Grid
-        >
+        Margin="2"
+        Name="MainGrid"
+        Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="*"/>

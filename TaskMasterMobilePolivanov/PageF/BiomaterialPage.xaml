@@ -9,81 +9,120 @@
       Title="BiomaterialPage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="383*"/>
+        </Grid.RowDefinitions>
         <TextBlock
             VerticalAlignment="Top"
             FontSize="20"
             HorizontalAlignment="Center"
             Text="Принятие биоматериала"
-            Style="{StaticResource TBlockClassic}"/>
+            Style="{StaticResource TBlockClassic}" Margin="145,5,145,0" Grid.RowSpan="2"/>
         <Border
             Margin="5"
             Padding="0"
-            Style="{StaticResource StBorderBio}">
-            <StackPanel
-                Orientation="Horizontal">
+            BorderThickness="3"
+            BorderBrush="#FF498C51"
+            Background="#FF76E383"
+            Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
                 <Border
                     Margin="0"
                     BorderThickness="0 0 3 0"
-                    Style="{StaticResource StBorderBio}">
+                    BorderBrush="#FF498C51">
                     <!--Левая часть-->
-                    <StackPanel>
+                    <Grid
+                        Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="110"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="45"/>
+                        </Grid.RowDefinitions>
                         <!--Дата-->
                         <StackPanel
-                            HorizontalAlignment="Right"
-                            Orientation="Horizontal">
-                            <TextBlock
-                                Text="Дата: "
-                                Style="{StaticResource TBlockClassic}"/>
-                            <DatePicker
-                                Name="DpDate"
-                                Height="25"
-                                Width="150"
-                                Margin="5"
-                                FontFamily="Comic Sans MS"/>
-                        </StackPanel>
-                        <!--Код-->
-                        <StackPanel
-                            HorizontalAlignment="Right"
-                            Orientation="Horizontal">
-                            <TextBlock
-                                Text="Код: "
-                                Style="{StaticResource TBlockClassic}"/>
-                            <TextBox
-                                MaxLength="7"
-                                TextChanged="TbBarcode_TextChanged"
-                                Style="{StaticResource TBoxClassic}"
-                                Name="TbBarcode"
-                                Height="25"
-                                Width="150"/>
-                        </StackPanel>
-                        <!--Пациент и добавление-->
-                        <StackPanel
-                            HorizontalAlignment="Right"
-                            Orientation="Horizontal">
-                            <TextBlock
-                                Text="Пациент: "
-                                Style="{StaticResource TBlockClassic}"/>
-                            <TextBox
-                                Name="TbxSearch"
-                                TextChanged="TextBox_TextChanged"
-                                Width="115"
-                                Style="{StaticResource TBoxClassic}"/>
-                            <Button
-                                ToolTip="Добавить нового пользователя"
-                                Name="BtnAddUser"
-                                Click="BtnAddUser_Click"
-                                Height="25"
-                                Width="25"
-                                Content="+"
-                                Padding="0"
-                                Style="{StaticResource BtnLaborantPStyle}"/>
+                            Grid.Row="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="35"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    HorizontalAlignment="Right"
+                                    Grid.Column="0"
+                                    Text="Дата: "
+                                    Style="{StaticResource TBlockClassic}"/>
+                                <DatePicker
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    Name="DpDate"
+                                    Height="25"
+                                    Margin="5"
+                                    FontFamily="Comic Sans MS"/>
+                            </Grid>
+                            <!--Код-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="35"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    HorizontalAlignment="Right"
+                                    Grid.Column="0"
+                                    Text="Код: "
+                                    Style="{StaticResource TBlockClassic}"/>
+                                <TextBox
+                                    Grid.ColumnSpan="2"
+                                    Grid.Column="1"
+                                    MaxLength="7"
+                                    TextChanged="TbBarcode_TextChanged"
+                                    Style="{StaticResource TBoxClassic}"
+                                    Name="TbBarcode"
+                                    Height="25"/>
+                            </Grid>
+                            <!--Пациент и добавление-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="35"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Right"
+                                    Text="Пациент: "
+                                    Style="{StaticResource TBlockClassic}"/>
+                                <TextBox
+                                    Grid.Column="1"
+                                    Name="TbxSearch"
+                                    TextChanged="TextBox_TextChanged"
+                                    Style="{StaticResource TBoxClassic}"/>
+                                <Button
+                                    Grid.Column="2"
+                                    ToolTip="Добавить нового пользователя"
+                                    Name="BtnAddUser"
+                                    Click="BtnAddUser_Click"
+                                    Height="25"
+                                    Width="25"
+                                    Content="+"
+                                    Padding="0"
+                                    Style="{StaticResource BtnLaborantPStyle}"/>
+                            </Grid>
+                            
                         </StackPanel>
                         <!--Дата грид с выбором пациента-->
                         <DataGrid
+                            Grid.Row="1"
                             Style="{StaticResource StyleDataGridBio}"
-                            Height="162"
+                            MinHeight="162"
                             Name="DataGridUser"
-                            Width="240"
                             Margin="5"
                             AlternatingRowBackground="#FF498C51">
                             <DataGrid.RowStyle>
@@ -99,14 +138,16 @@
                         </DataGrid>
                         <!--Кнопка приняти материала-->
                         <Button
+                            Grid.Row="2"
                             Click="BtnBiomaterial_Click"
                             Name="BtnBiomaterial"
                             Content="Принять биоматериал"
                             Style="{StaticResource BtnLaborantPStyle}"/>
-                    </StackPanel>
+                    </Grid>
                 </Border>
                 <!--Правая часть-->
-                <StackPanel>
+                <StackPanel
+                    Grid.Column="1">
                     <!--Пациент-->
                     <TextBlock
                         Text="Пациент"
@@ -120,7 +161,7 @@
                         <TextBox
                             Name="TbLastName"
                             Style="{StaticResource TBoxBioP}"/>
-                </StackPanel>
+                    </StackPanel>
                     <!--Имя-->
                     <StackPanel
                         Orientation="Horizontal">
@@ -150,7 +191,7 @@
                         <TextBox
                             Name="TbDate"
                             Style="{StaticResource TBoxBioP}"/>
-                </StackPanel>
+                    </StackPanel>
                     <!--Email-->
                     <StackPanel
                         Orientation="Horizontal">
@@ -207,8 +248,8 @@
                             Name="TbPoliceNumber"
                             Style="{StaticResource TBoxBioP}"/>
                     </StackPanel>
-            </StackPanel>
-        </StackPanel>
+                </StackPanel>
+            </Grid>
         </Border>
     </Grid>
 </Page>

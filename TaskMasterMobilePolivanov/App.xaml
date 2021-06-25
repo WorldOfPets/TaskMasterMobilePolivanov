@@ -102,5 +102,22 @@
             <Setter Property="Background" Value="#FF76E383"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
         </Style>
+        <!--TEXTBOX для ORDERINFO-->
+        <Style TargetType="TextBox" x:Key="TBoxOrderINFO">
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="BorderBrush" Value="#FF498C51"/>
+            <Setter Property="BorderThickness" Value="0 0 0 2"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="MinWidth" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
+        <Style TargetType="ToolTip" >
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FF498C51"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            
+        </Style>
     </Application.Resources>
 </Application>

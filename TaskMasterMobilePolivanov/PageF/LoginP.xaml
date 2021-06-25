@@ -34,7 +34,7 @@
                             Style="{StaticResource TBlockClassic}"
                             Text="Login:"/>
                         <TextBox
-                            Text="2"
+                            Text="3"
                             Name="TbLogin"
                             Margin="5 5 10 5"
                             Style="{StaticResource TBoxClassic}"
@@ -48,12 +48,13 @@
                             Text="Password:"/>
                         <PasswordBox
                             Visibility="Visible"
-                            Password="2"
+                            Password="3"
                             Name="PbPassword"
                             Margin="5"
                             BorderBrush="#FF498C51"
                             Width="120"/>
                         <TextBox
+                            Text="3"
                             Visibility="Collapsed"
                             Width="120"
                             Name="TbPasswor"

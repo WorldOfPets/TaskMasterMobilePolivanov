@@ -94,9 +94,11 @@ namespace TaskMasterMobilePolivanov
                 {
                     timer.Stop();
                     timer = new DispatcherTimer();
+                    var bc = new BrushConverter();
                     StackMain.Visibility = Visibility.Visible;
                     BorderMain.Visibility = Visibility.Collapsed;
-                    Application.Current.MainWindow.Background = Brushes.White;
+                    MainGrid.Background = Brushes.White;
+                    Application.Current.MainWindow.BorderBrush = (Brush)bc.ConvertFrom("#FF498C51");
                     ClassF.FrmPageClass.frm.Navigate(new PageF.LoadPage(new PageF.LoginP()));
                 }
             }

@@ -51,14 +51,13 @@
                                 Style="{StaticResource StyleBtnMain}"/>
                             <DatePicker
                                 CalendarClosed="DpDateComplate_CalendarClosed"
-                            Opacity="0"
-                            Name="DpDateComplate"
-                            BorderBrush="Transparent"
-                            FontFamily="Comic Sans MS"
-                            FontSize="14"
-                            Background="Transparent">
+                                Opacity="0"
+                                Name="DpDateComplate"
+                                BorderBrush="Transparent"
+                                FontFamily="Comic Sans MS"
+                                FontSize="14"
+                                Background="Transparent">
                             </DatePicker>
-
                         </Grid>
                     </StackPanel>
                     <StackPanel

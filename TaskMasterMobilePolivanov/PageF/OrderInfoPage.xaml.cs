@@ -20,9 +20,21 @@ namespace TaskMasterMobilePolivanov.PageF
     /// </summary>
     public partial class OrderInfoPage : Page
     {
-        public OrderInfoPage()
+        public OrderInfoPage(int OrderIDinfo)
         {
             InitializeComponent();
+
+            var orderINFO = ClassF.databaseClass.DBCl.OrderComplate.FirstOrDefault(x => x.Id == OrderIDinfo);
+            UslugaDataGrid.ItemsSource = ClassF.databaseClass.DBCl.PacientLabService.Where(x => x.IdPacient == orderINFO.OrderInfo.IdPacient).ToList();
+
+            TbBarcod.Text = orderINFO.OrderInfo.Barcode.ToString();
+            TbDataNa4.Text = orderINFO.OrderInfo.Date.Value.ToShortDateString();
+            TbDataKon.Text = orderINFO.DateComplate.Value.ToShortDateString();
+            TbAnalizator.Text = orderINFO.Analizator.Name;
+            TbStatus.Text = orderINFO.Status.Name;
+            TbResult.Text = orderINFO.Result.ToString();
+            TbAllPrice.Text = orderINFO.FullPrice;
+
         }
     }
 }

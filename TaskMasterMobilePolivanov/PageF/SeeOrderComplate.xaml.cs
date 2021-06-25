@@ -20,6 +20,7 @@ namespace TaskMasterMobilePolivanov.PageF
     /// </summary>
     public partial class SeeOrderComplate : Page
     {
+        public int orderIdInfo { get; set; }
         public SeeOrderComplate()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace TaskMasterMobilePolivanov.PageF
         {
             var rowSelect = (DataGridRow)sender;
             var contextSelect = rowSelect.DataContext as DataBaseF.OrderComplate;
+            orderIdInfo = contextSelect.Id;
             TbResultSearch.Text = $"№{contextSelect.Id} Пациент: {contextSelect.OrderInfo.Pacient.LastName} {contextSelect.OrderInfo.Pacient.Name[0]}. Лаборант: {contextSelect.UserLab.LastName} {contextSelect.UserLab.Name[0]}.";
         }
 
@@ -41,7 +43,7 @@ namespace TaskMasterMobilePolivanov.PageF
 
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            FrmOrder.Navigate(new OrderInfoPage());
+            FrmOrder.Navigate(new OrderInfoPage(orderIdInfo));
             BtnBack.Visibility = Visibility.Visible;
             DataGridOrderComplate.Visibility = Visibility.Collapsed;
         }

@@ -79,6 +79,12 @@
                             Visibility="Visible"
                             Content="Работать с анализатором"
                             Style="{StaticResource BtnLaborantPStyle}"/>
+                        <Button
+                            Name="BtnAddPacient"
+                            Click="BtnAddPacient_Click"
+                            Visibility="Visible"
+                            Content="Добавть пациента"
+                            Style="{StaticResource BtnLaborantPStyle}"/>
                         <!--КНОПКА просмотреть отчеты-->
                         <Button
                             Click="BtnSeeOt4et_Click"
