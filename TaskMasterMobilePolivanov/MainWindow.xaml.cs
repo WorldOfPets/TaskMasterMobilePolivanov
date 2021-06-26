@@ -43,7 +43,7 @@ namespace TaskMasterMobilePolivanov
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
         }
 
@@ -55,7 +55,7 @@ namespace TaskMasterMobilePolivanov
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
         }
 
@@ -67,7 +67,7 @@ namespace TaskMasterMobilePolivanov
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
         }
         public void TimerLoad()
@@ -80,7 +80,7 @@ namespace TaskMasterMobilePolivanov
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
         }
 
@@ -104,7 +104,7 @@ namespace TaskMasterMobilePolivanov
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
         }
 
@@ -116,7 +116,7 @@ namespace TaskMasterMobilePolivanov
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
         }
 
@@ -137,7 +137,7 @@ namespace TaskMasterMobilePolivanov
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
         }
         #region Мини плеер
@@ -157,7 +157,7 @@ namespace TaskMasterMobilePolivanov
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
         }
 
@@ -169,7 +169,7 @@ namespace TaskMasterMobilePolivanov
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
         }
 
@@ -181,7 +181,7 @@ namespace TaskMasterMobilePolivanov
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
         }
 
@@ -194,7 +194,7 @@ namespace TaskMasterMobilePolivanov
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
         }
         #endregion

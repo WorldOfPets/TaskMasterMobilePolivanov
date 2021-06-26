@@ -1,0 +1,67 @@
+﻿<Window x:Class="TaskMasterMobilePolivanov.PageF.ErrorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskMasterMobilePolivanov.PageF"
+        mc:Ignorable="d"
+        Title="ErrorWindow" 
+        Height="200" 
+        Width="750"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Grid
+        MouseDown="Grid_MouseDown"
+        Opacity="0.8"
+        Background="Red">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="112*"/>
+            <RowDefinition Height="113*"/>
+        </Grid.RowDefinitions>
+        <TextBlock
+            Name="Smettt"
+            Opacity="0"
+            FontWeight="ExtraBold"
+            FontSize="40"
+            Grid.RowSpan="2"
+            TextAlignment="Center"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"> 
+            Если точно знаешь, в чем ошибка <LineBreak/>– не выдавай себя.
+        </TextBlock>
+        <TextBlock
+            Mouse.MouseDown="TextBlock_MouseDown"
+            Foreground="White"
+            VerticalAlignment="Top"
+            Margin="10 5"
+            FontSize="35"
+            Height="45"
+            Width="45"
+            Cursor="Hand"
+            TextAlignment="Center"
+            Text="X"
+            HorizontalAlignment="Right"
+            Grid.Row="0"/>
+        <TextBlock
+            Name="TbError111"
+            Foreground="White"
+            FontWeight="ExtraBold"
+            FontSize="46"
+            VerticalAlignment="Bottom"
+            TextAlignment="Center"
+            Text="ERROR!!!"
+            Grid.Row="0"/>
+        <TextBlock 
+            Name="TblErrorMessage"
+            Foreground="White"
+            FontSize="20"
+            VerticalAlignment="Top"
+            TextAlignment="Center"
+            Grid.Row="1">
+            Если точно знаешь, в чем ошибка
+            <LineBreak/> – не выдавай себя.
+        </TextBlock>
+    </Grid>
+</Window>

@@ -94,9 +94,9 @@ namespace TaskMasterMobilePolivanov.PageF
                 }
                 else { MessageBox.Show("Не все поля заполнены или не выбран пациент!", "Данные"); }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ошибка", "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
                 throw;
             }
         }
@@ -140,7 +140,7 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
                 throw;
             }
             

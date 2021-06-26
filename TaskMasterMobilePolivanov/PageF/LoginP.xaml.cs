@@ -64,6 +64,7 @@ namespace TaskMasterMobilePolivanov.PageF
 
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
         {
+            ClassF.ErrorClass.MessageForUser("Hello my dear friend!)");
             ClassF.FrmPageClass.frm.Navigate(new PageF.LoadPage(new PageF.InfoUser()));
         }
 
