@@ -75,5 +75,10 @@ namespace TaskMasterMobilePolivanov.PageF
         {
             ClassF.FrmPageClass.frmLobarant.Navigate(new AddPacient());
         }
+
+        private void BtnC4et_Click(object sender, RoutedEventArgs e)
+        {
+            ClassF.FrmPageClass.frmLobarant.Navigate(new OformlenS4etPage());
+        }
     }
 }

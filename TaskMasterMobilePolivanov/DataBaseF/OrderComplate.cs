@@ -14,6 +14,12 @@ namespace TaskMasterMobilePolivanov.DataBaseF
     
     public partial class OrderComplate
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public OrderComplate()
+        {
+            this.Invoicing = new HashSet<Invoicing>();
+        }
+    
         public int Id { get; set; }
         public Nullable<int> IdOreder { get; set; }
         public Nullable<int> IdUser { get; set; }
@@ -24,6 +30,8 @@ namespace TaskMasterMobilePolivanov.DataBaseF
         public Nullable<decimal> Result { get; set; }
     
         public virtual Analizator Analizator { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoicing> Invoicing { get; set; }
         public virtual OrderInfo OrderInfo { get; set; }
         public virtual Status Status { get; set; }
         public virtual UserLab UserLab { get; set; }

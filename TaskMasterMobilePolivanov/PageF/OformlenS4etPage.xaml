@@ -1,0 +1,145 @@
+﻿<Page x:Class="TaskMasterMobilePolivanov.PageF.OformlenS4etPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TaskMasterMobilePolivanov.PageF"
+      mc:Ignorable="d" 
+      d:DesignHeight="415" d:DesignWidth="530"
+      Title="OformlenS4etPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="376*"/>
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            VerticalAlignment="Top"
+            FontSize="20"
+            HorizontalAlignment="Center"
+            Text="Сформировать счет"
+            Style="{StaticResource TBlockClassic}"/>
+        <Border
+            Margin="6"
+            CornerRadius="5"
+            BorderBrush="#FF498C51"
+            BorderThickness="3"
+            Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="160"/>
+                    <RowDefinition Height="376*"/>
+                </Grid.RowDefinitions>
+                <StackPanel>
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Text="Исполнитель:"
+                            Style="{StaticResource TBlockClassic}"/>
+                        <TextBox
+                            Name="TbIspolnitel"
+                            IsReadOnly="True"
+                            Margin="0 0 0 10"
+                            Padding="0 8 0 0"
+                            TextAlignment="Center"
+                            FontSize="14"
+                            MinWidth="84"
+                            Style="{StaticResource TBoxBioP}"/>
+                    </StackPanel>
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Text="Страховая компания:"
+                            Style="{StaticResource TBlockClassic}"/>
+                        <Grid>
+                            <TextBox
+                                Name="TbCompany"
+                                IsReadOnly="True"
+                                Margin="0 0 0 10"
+                                Padding="0 8 0 0"
+                                TextAlignment="Center"
+                                FontSize="14"
+                                Width="84"
+                                Style="{StaticResource TBoxPatient}"/>
+                            <ComboBox
+                                DropDownClosed="CmbCompany_DropDownClosed"
+                                Name="CmbCompany"
+                                ItemContainerStyle="{StaticResource CmbStyle}"
+                                Opacity="0"
+                                MinWidth="84">
+                            </ComboBox>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Text="Счёт:"
+                            Style="{StaticResource TBlockClassic}"/>
+                        <TextBox
+                            Name="TbC4et"
+                            IsReadOnly="True"
+                            Margin="0 0 0 10"
+                            Padding="0 8 0 0"
+                            TextAlignment="Center"
+                            FontSize="14"
+                            MinWidth="84"
+                            Style="{StaticResource TBoxPatient}"/>
+                    </StackPanel>
+                    <Grid>
+                        <StackPanel
+                            Orientation="Horizontal">
+                            <TextBlock
+                                Text="Заказ:"
+                                Style="{StaticResource TBlockClassic}"/>
+                            <TextBox
+                                Name="TbOrder"
+                                TextChanged="TbOrder_TextChanged"
+                                Margin="0 0 0 10"
+                                Padding="0 8 0 0"
+                                TextAlignment="Center"
+                                FontSize="14"
+                                MinWidth="84"
+                                Style="{StaticResource TBoxPatient}"/>
+                            <Button
+                                Click="BtnClear_Click"
+                                Name="BtnClear"
+                                Margin="5"
+                                Content="X"
+                                Style="{StaticResource StyleBtnMain}"/>
+                        </StackPanel>
+                        <Button
+                            Margin="3"
+                            FontFamily="Comic Sans MS"
+                            Content="Сформировать счёт"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource BtnClassic}"/>
+                    </Grid>
+                </StackPanel>
+                <Border
+                    Margin="6"
+                    CornerRadius="5"
+                    BorderBrush="#FF498C51"
+                    BorderThickness="3"
+                    Grid.Row="1">
+                    <DataGrid
+                        Name="OrderDataGrid"
+                        AlternatingRowBackground="#FF498C51"
+                        Style="{StaticResource StyleDataGridBio}"
+                        Grid.Row="1">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <EventSetter Event="Selected" Handler="DataGridRow_Selected"/>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding OrderInfo.Barcode}" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding pacientFullName}" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding FullPrice}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

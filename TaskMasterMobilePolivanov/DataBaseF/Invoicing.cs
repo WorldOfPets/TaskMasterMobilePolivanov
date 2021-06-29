@@ -21,6 +21,7 @@ namespace TaskMasterMobilePolivanov.DataBaseF
         public Nullable<int> IdOrderComplate { get; set; }
     
         public virtual InsuranceCompany InsuranceCompany { get; set; }
+        public virtual OrderComplate OrderComplate { get; set; }
         public virtual UserLab UserLab { get; set; }
     }
 }

@@ -183,6 +183,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Invoicing_OrderComplate">
+          <End Role="OrderComplate" Type="Self.OrderComplate" Multiplicity="0..1" />
+          <End Role="Invoicing" Type="Self.Invoicing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderComplate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoicing">
+              <PropertyRef Name="IdOrderComplate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Invoicing_UserLab">
           <End Role="UserLab" Type="Self.UserLab" Multiplicity="0..1" />
           <End Role="Invoicing" Type="Self.Invoicing" Multiplicity="*" />
@@ -351,6 +363,10 @@
             <End Role="InsuranceCompany" EntitySet="InsuranceCompany" />
             <End Role="Invoicing" EntitySet="Invoicing" />
           </AssociationSet>
+          <AssociationSet Name="FK_Invoicing_OrderComplate" Association="Self.FK_Invoicing_OrderComplate">
+            <End Role="OrderComplate" EntitySet="OrderComplate" />
+            <End Role="Invoicing" EntitySet="Invoicing" />
+          </AssociationSet>
           <AssociationSet Name="FK_Invoicing_UserLab" Association="Self.FK_Invoicing_UserLab">
             <End Role="UserLab" EntitySet="UserLab" />
             <End Role="Invoicing" EntitySet="Invoicing" />
@@ -435,6 +451,10 @@
           <AssociationSet Name="FK_Pacient_InsurancePolicy" Association="Session1_TaskMaster_PolivanovModel.FK_Pacient_InsurancePolicy">
             <End Role="InsurancePolicy" EntitySet="InsurancePolicy" />
             <End Role="Pacient" EntitySet="Pacient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoicing_OrderComplate" Association="Session1_TaskMaster_PolivanovModel.FK_Invoicing_OrderComplate">
+            <End Role="OrderComplate" EntitySet="OrderComplate" />
+            <End Role="Invoicing" EntitySet="Invoicing" />
           </AssociationSet>
           <AssociationSet Name="FK_Invoicing_UserLab" Association="Session1_TaskMaster_PolivanovModel.FK_Invoicing_UserLab">
             <End Role="UserLab" EntitySet="UserLab" />
@@ -526,6 +546,7 @@
           <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="IdOrderComplate" Type="Int32" />
           <NavigationProperty Name="InsuranceCompany" Relationship="Session1_TaskMaster_PolivanovModel.FK_Invoicing_InsuranceCompany" FromRole="Invoicing" ToRole="InsuranceCompany" />
+          <NavigationProperty Name="OrderComplate" Relationship="Session1_TaskMaster_PolivanovModel.FK_Invoicing_OrderComplate" FromRole="Invoicing" ToRole="OrderComplate" />
           <NavigationProperty Name="UserLab" Relationship="Session1_TaskMaster_PolivanovModel.FK_Invoicing_UserLab" FromRole="Invoicing" ToRole="UserLab" />
         </EntityType>
         <EntityType Name="LabServices">
@@ -554,6 +575,7 @@
           <Property Name="Accepted" Type="Boolean" />
           <Property Name="Result" Type="Decimal" Precision="10" Scale="6" />
           <NavigationProperty Name="Analizator" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_Analizator" FromRole="OrderComplate" ToRole="Analizator" />
+          <NavigationProperty Name="Invoicing" Relationship="Session1_TaskMaster_PolivanovModel.FK_Invoicing_OrderComplate" FromRole="OrderComplate" ToRole="Invoicing" />
           <NavigationProperty Name="OrderInfo" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_OrderInfo1" FromRole="OrderComplate" ToRole="OrderInfo" />
           <NavigationProperty Name="Status" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_Status" FromRole="OrderComplate" ToRole="Status" />
           <NavigationProperty Name="UserLab" Relationship="Session1_TaskMaster_PolivanovModel.FK_OrderComplate_UserLab1" FromRole="OrderComplate" ToRole="UserLab" />
@@ -704,6 +726,18 @@
             </Principal>
             <Dependent Role="Pacient">
               <PropertyRef Name="IdInsurancePolicy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoicing_OrderComplate">
+          <End Type="Session1_TaskMaster_PolivanovModel.OrderComplate" Role="OrderComplate" Multiplicity="0..1" />
+          <End Type="Session1_TaskMaster_PolivanovModel.Invoicing" Role="Invoicing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderComplate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoicing">
+              <PropertyRef Name="IdOrderComplate" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

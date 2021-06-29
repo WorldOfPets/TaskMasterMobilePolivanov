@@ -152,17 +152,17 @@
                                 IsReadOnly="True"
                                 Name="TbAnalizator"
                                 Margin="0 0 0 10"
-                                    Padding="0 8 0 0"
-                                    TextAlignment="Center"
-                                    FontSize="14"
+                                Padding="0 8 0 0"
+                                TextAlignment="Center"
+                                FontSize="14"
                                 Width="84"
-                                    Style="{StaticResource TBoxPatient}"/>
+                                Style="{StaticResource TBoxPatient}"/>
                             <ComboBox
                                 DropDownClosed="CmbAnalizator_DropDownClosed"
-                                    ItemContainerStyle="{StaticResource CmbStyle}"
-                                    Opacity="0"
-                                    Name="CmbAnalizator"
-                                    Width="84">
+                                ItemContainerStyle="{StaticResource CmbStyle}"
+                                Opacity="0"
+                                Name="CmbAnalizator"
+                                Width="84">
                             </ComboBox>
                         </Grid>
                         <TextBlock

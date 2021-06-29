@@ -175,6 +175,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageF\OformlenS4etPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageF\OrderInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -208,6 +212,9 @@
     </Compile>
     <Compile Include="PageF\LoginP.xaml.cs">
       <DependentUpon>LoginP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageF\OformlenS4etPage.xaml.cs">
+      <DependentUpon>OformlenS4etPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageF\OrderInfoPage.xaml.cs">
       <DependentUpon>OrderInfoPage.xaml</DependentUpon>

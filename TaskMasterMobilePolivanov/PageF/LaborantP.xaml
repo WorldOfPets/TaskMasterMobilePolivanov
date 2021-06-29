@@ -94,6 +94,7 @@
                             Style="{StaticResource BtnLaborantPStyle}"/>
                         <!--КНОПКА сформировать отчеты-->
                         <Button
+                            Click="BtnC4et_Click"
                             Name="BtnC4et"
                             Visibility="Visible"
                             Content="Сформировать счет"

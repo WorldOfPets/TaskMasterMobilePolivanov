@@ -18,6 +18,7 @@
         </Style>
         <!--Стандартный стиль для КНОПКИ-->
         <Style TargetType="Button" x:Key="BtnClassic">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="Padding" Value="25 5 25 5"/>
             <Setter Property="Foreground" Value="#FFFFFF"/>
@@ -27,6 +28,7 @@
         </Style>
         <!--Стиль для КНОПКИ с биоматериалом-->
         <Style TargetType="Button" x:Key="BtnLaborantPStyle">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="Padding" Value="25 5 25 5"/>
             <Setter Property="Foreground" Value="#FFFFFF"/>
