@@ -20,6 +20,8 @@ namespace TaskMasterMobilePolivanov.PageF
     /// </summary>
     public partial class OformlenS4etPage : Page
     {
+
+        public int idOrderComp { get; set; }
         public OformlenS4etPage()
         {
             InitializeComponent();
@@ -44,6 +46,7 @@ namespace TaskMasterMobilePolivanov.PageF
             TbOrder.IsReadOnly = true;
             TbOrder.Text = $"{context.OrderInfo.Barcode} / {context.pacientFullName}";
             TbOrder.BorderBrush = (Brush)bc.ConvertFrom("#FF498C51");
+            idOrderComp = context.Id;
         }
 
         private void CmbCompany_DropDownClosed(object sender, EventArgs e)
@@ -66,6 +69,25 @@ namespace TaskMasterMobilePolivanov.PageF
             TbOrder.IsReadOnly = false;
             TbOrder.BorderBrush = Brushes.Red;
             TbOrder.Text = "";
+            TbC4et.Text = "";
+            TbC4et.BorderBrush = Brushes.Red;
+        }
+
+        private void BtnC4et_Click(object sender, RoutedEventArgs e)
+        {
+            var bc = new BrushConverter();
+            if (TbC4et.BorderBrush == (Brush)bc.ConvertFrom("#FF498C51") && TbCompany.BorderBrush == (Brush)bc.ConvertFrom("#FF498C51") && TbOrder.BorderBrush == (Brush)bc.ConvertFrom("#FF498C51"))
+            {
+                string price = TbC4et.Text.Replace(",", ".").Replace("$","");
+                TbC4et.Text = price;
+                //DataBaseF.Invoicing invoicing = new DataBaseF.Invoicing()
+                //{
+                //    IdInsuranceCompany = (int)CmbCompany.SelectedValue,
+                //    IdOrderComplate = idOrderComp,
+                //    IdUser = LaborantP.LaborantID,
+                //    Price = Convert.ToDecimal(price);
+                //};
+            }
         }
     }
 }

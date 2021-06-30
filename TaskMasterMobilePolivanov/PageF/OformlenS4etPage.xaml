@@ -108,6 +108,8 @@
                                 Style="{StaticResource StyleBtnMain}"/>
                         </StackPanel>
                         <Button
+                            Name="BtnC4et"
+                            Click="BtnC4et_Click"
                             Margin="3"
                             FontFamily="Comic Sans MS"
                             Content="Сформировать счёт"
