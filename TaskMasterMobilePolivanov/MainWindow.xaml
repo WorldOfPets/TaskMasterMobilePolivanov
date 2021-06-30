@@ -120,13 +120,12 @@
                 Height="300"
                 Source="/ResF/logo.ico"/>
         </Border>
-
         <Frame
             Grid.Row="1"
             MinWidth="790"
             MinHeight="415"
             Name="FrmMain"
             NavigationUIVisibility="Hidden"/>
-    </Grid>
+    </Grid> <!--НУУУ НЕТУ!!!-->
 </Window>
 <!--ТУТ ничего нету-->

@@ -25,7 +25,7 @@ namespace TaskMasterMobilePolivanov.PageF
             InitializeComponent();
         }
 
-        private async void BtnEnter_Click(object sender, RoutedEventArgs e)
+        private void BtnEnter_Click(object sender, RoutedEventArgs e)
         {
             if (TbLogin.Text != "" && (PbPassword.Password != "" || TbPasswor.Text != ""))
             {
@@ -54,11 +54,7 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             else
             {
-                ToolTip toolTip = new ToolTip();
-                toolTip.Content = "Не все поля заполнены!!!";
-                toolTip.IsOpen = true;
-                await Task.Delay(3000);
-                toolTip.IsOpen = false;
+                ClassF.ErrorClass.ToolTipMessage("Не все поля заполнены!!!");
             }
         }
 

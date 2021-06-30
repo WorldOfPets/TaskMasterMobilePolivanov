@@ -12,16 +12,15 @@ namespace TaskMasterMobilePolivanov.DataBaseF
             get {
                 return $"{OrderInfo.Pacient.LastName} {OrderInfo.Pacient.Name} {OrderInfo.Pacient.MiddleName}";
             }
-        }
-        public string laborantFullName
+        } //ПОЛНОЕ ИМЯ ПАЦИЕНТА
+        public string laborantFullName 
         {
             get
             {
                 return $"{UserLab.LastName} {UserLab.Name} {UserLab.MiddleName}";
             }
-        }
-
-        public string FullPrice
+        } //ПОЛНОЕ ИМЯ ЛАБОРАНТА
+        public string FullPrice 
         {
             get
             {
@@ -33,6 +32,6 @@ namespace TaskMasterMobilePolivanov.DataBaseF
                 }
                 return $"{labs}$";
             }
-        }
+        } //ПОЛНАЯ ЦЕНА ЗА ВСЕ УСЛУГИ
     }
 }

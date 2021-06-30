@@ -9,6 +9,6 @@ namespace TaskMasterMobilePolivanov.ClassF
 {
     class databaseClass
     {
-        public static Session1_TaskMaster_PolivanovEntities DBCl;
+        public static Session1_TaskMaster_PolivanovEntities DBCl;//ХРАНЕНИЕ БАЗЫ ДАННЫХ
     }
 }

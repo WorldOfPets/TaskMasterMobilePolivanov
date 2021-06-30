@@ -9,8 +9,8 @@ namespace TaskMasterMobilePolivanov.ClassF
 {
     class FrmPageClass
     {
-        public static Frame frm;
+        public static Frame frm; //ФРЕЙМ для основ страниц
 
-        public static Frame frmLobarant;
+        public static Frame frmLobarant; //ФРЕМ для страниц лаборанта и бухгалтера
     }
 }
