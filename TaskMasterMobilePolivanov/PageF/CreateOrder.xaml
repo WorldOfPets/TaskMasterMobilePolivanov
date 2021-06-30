@@ -220,6 +220,7 @@
                             </ComboBox>
                         </Grid>
                         <Button
+                            ToolTip="Добавить услугу"
                             Click="Button_Click"
                             Margin="7"
                             Style="{StaticResource StyleBtnMain}"

@@ -20,11 +20,13 @@ namespace TaskMasterMobilePolivanov.PageF
     /// </summary>
     public partial class CreateOrder : Page
     {
+        #region ПЕРМЕННЫЕ
         public bool stResult { get; set; }
         public int idPacient { get; set; } = 0;
         public int Code { get; set; }
         public int orderId { get; set; }
         public bool search { get; set; } = true;
+        #endregion
         public CreateOrder()
         {
             InitializeComponent();
@@ -56,10 +58,9 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
-
+        } //ИНИЦИАЛИЗАЦИЯ исполнитель, датагрид, комбобоксы
         private void DataGridRow_Selected(object sender, RoutedEventArgs e)
         {
             try
@@ -75,10 +76,9 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
-
+        } //ВЫБОР СТРОКИ датагрида
         private void TbResult_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
@@ -101,9 +101,9 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
+        } //ПРЕОБРАЗОВАНИЕ РЕЗУЛЬТАТА
         public void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             try
@@ -115,10 +115,9 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
-
+        } //МЕТОД для провертки текстбоксов на циферки
         private void DpDateComplate_CalendarClosed(object sender, RoutedEventArgs e)
         {
             try
@@ -136,10 +135,9 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
-
+        } //ДАТАПИКЕР ДАТА при закрытии
         private void CmbStResult_DropDownClosed(object sender, EventArgs e)
         {
             try
@@ -167,10 +165,9 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
-
+        } //КОБОБОКС РЕЗУЛЬТАТ при закрытии
         private void CmbAnalizator_DropDownClosed(object sender, EventArgs e)
         {
             try
@@ -188,10 +185,9 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
-
+        } //КОБОБОКС АНЛИЗАТОР при закрытии
         private void CmbStatus_DropDownClosed(object sender, EventArgs e)
         {
             try
@@ -209,10 +205,9 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message); 
             }
-        }
-
+        } //КОМБОБОКС СТАТУС при закрытии
         private void CmbUsluga_DropDownClosed(object sender, EventArgs e)
         {
             try
@@ -231,10 +226,9 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
-
+        } //КОБОБОКС УСЛУГА при закрытии
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -253,17 +247,19 @@ namespace TaskMasterMobilePolivanov.PageF
                         ClassF.databaseClass.DBCl.PacientLabService.Add(pacientLabServieces);
                         ClassF.databaseClass.DBCl.SaveChanges();
                         TbCountLabServ.Text = ClassF.databaseClass.DBCl.PacientLabService.Where(x => x.IdPacient == idPacient).Count().ToString();
-                        MessageBox.Show("Услуга добавлена", "Успех");
+                        ClassF.ErrorClass.ToolTipMessage("Успех! Услуга добавлена!");
                     }
-                    else { MessageBox.Show("Услуга не может быть повторна добавлена", "Потвор данных"); }
+                    else 
+                    {
+                        ClassF.ErrorClass.ToolTipMessage("Ошибка! Услуга уже добалена!"); 
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
-
+        } //КНОПКА ДОБАЛЕНИЯ УСЛУГИ
         private void BtnAddOrder_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -289,18 +285,23 @@ namespace TaskMasterMobilePolivanov.PageF
                         };
                         ClassF.databaseClass.DBCl.OrderComplate.Add(orderComplate);
                         ClassF.databaseClass.DBCl.SaveChanges();
-                        MessageBox.Show("Заказ успшно оформлен", "");
+                        ClassF.ErrorClass.ToolTipMessage("Успех! Заказ успшно оформлен!");
                     }
-                    else { MessageBox.Show("Такой заказ уже сформирован. Но вы можете добавить услугу.",""); }
+                    else 
+                    { 
+                        ClassF.ErrorClass.ToolTipMessage("Ошибка! Такой заказ уже сформирован!"); 
+                    }
                 }
-                else { MessageBox.Show("Не все поля заполнены.","Ошибка ввода."); }
+                else 
+                { 
+                    ClassF.ErrorClass.ToolTipMessage("Ошибка! Не все поля заполнены!"); 
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
-
+        } //КНОПКА ДОБАВЛЕНИЕ ЗАКАЗА
         private void TbPacient_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
@@ -312,10 +313,9 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
-
+        } //ПОИСК в датагриде
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             try
@@ -326,8 +326,8 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
+        } //КНОПКА ОЧИСТИТЬ строку поиска
     }
 }

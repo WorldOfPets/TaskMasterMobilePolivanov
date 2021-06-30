@@ -22,59 +22,80 @@ namespace TaskMasterMobilePolivanov.PageF
 
     public partial class BiomaterialPage : Page
     {
+        #region ПЕРЕМЕННЫЕ
         public static int IdPacientP { get; set; } = 0;
+        #endregion
         public BiomaterialPage()
         {
             InitializeComponent();
+            try
+            {
+                DataGridUser.ItemsSource = ClassF.databaseClass.DBCl.Pacient.ToList();
 
-            DataGridUser.ItemsSource = ClassF.databaseClass.DBCl.Pacient.ToList();
-
-            BtnAddUser.ToolTip = "Добавить нового пациента";
-        }
-
+                BtnAddUser.ToolTip = "Добавить нового пациента";
+            }
+            catch (Exception ex)
+            {
+                ClassF.ErrorClass.MessageForUser(ex.Message);
+            }
+        } //ИНИЦИАЛИЗАЦИЯ датагрид и тултип
         private async void DataGridRow_Selected(object sender, RoutedEventArgs e)
         {
-            var row = (DataGridRow)sender;
-            var context = row.DataContext as DataBaseF.Pacient;
-            IdPacientP = context.Id;
-            await Task.Delay(20);
-            TbLastName.Text = context.LastName;
-            await Task.Delay(20);
-            TbName.Text = context.Name;
-            await Task.Delay(20);
-            TbOt4.Text = context.MiddleName;
-            await Task.Delay(20);
-            TbDate.Text = context.Birthdate.Value.ToShortDateString();
-            await Task.Delay(20);
-            TbEmail.Text = context.Email;
-            await Task.Delay(20);
-            TbIEN.Text = context.EIN;
-            await Task.Delay(20);
-            TbNumberPhone.Text = context.PhoneNumber;
-            await Task.Delay(20);
-            TbPassportSeria.Text = context.PassportS.ToString();
-            await Task.Delay(20);
-            TbPassportNumber.Text = context.PassportN.ToString();
-            await Task.Delay(20);
-            TbType.Text = context.InsurancePolicy.InsurancePoliceType.Name;
-            await Task.Delay(20);
-            TbPoliceNumber.Text = context.InsurancePolicy.Number.ToString();
-        }
-
+            try
+            {
+                var row = (DataGridRow)sender;
+                var context = row.DataContext as DataBaseF.Pacient;
+                IdPacientP = context.Id;
+                await Task.Delay(20);
+                TbLastName.Text = context.LastName;
+                await Task.Delay(20);
+                TbName.Text = context.Name;
+                await Task.Delay(20);
+                TbOt4.Text = context.MiddleName;
+                await Task.Delay(20);
+                TbDate.Text = context.Birthdate.Value.ToShortDateString();
+                await Task.Delay(20);
+                TbEmail.Text = context.Email;
+                await Task.Delay(20);
+                TbIEN.Text = context.EIN;
+                await Task.Delay(20);
+                TbNumberPhone.Text = context.PhoneNumber;
+                await Task.Delay(20);
+                TbPassportSeria.Text = context.PassportS.ToString();
+                await Task.Delay(20);
+                TbPassportNumber.Text = context.PassportN.ToString();
+                await Task.Delay(20);
+                TbType.Text = context.InsurancePolicy.InsurancePoliceType.Name;
+                await Task.Delay(20);
+                TbPoliceNumber.Text = context.InsurancePolicy.Number.ToString();
+            }
+            catch (Exception ex)
+            {
+                ClassF.ErrorClass.MessageForUser(ex.Message);
+            }
+        } //ВЫБОР СТРОКИ ДАТАГРИДА и заполнение данных
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            DataGridUser.ItemsSource = ClassF.databaseClass.DBCl.Pacient.Where(x => x.Name.Contains(TbxSearch.Text) || x.LastName.Contains(TbxSearch.Text)).ToList();
-        }
-
+            try
+            {
+                DataGridUser.ItemsSource = ClassF.databaseClass.DBCl.Pacient.Where(x => x.Name.Contains(TbxSearch.Text) || x.LastName.Contains(TbxSearch.Text)).ToList();
+            }
+            catch (Exception ex)
+            {
+                ClassF.ErrorClass.MessageForUser(ex.Message);
+            }
+        } //ПОИСК в датагриде
         private void BtnAddUser_Click(object sender, RoutedEventArgs e)
         {
-            ClassF.FrmPageClass.frmLobarant.Navigate(new AddPacient());
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+            try
+            {
+                ClassF.FrmPageClass.frmLobarant.Navigate(new AddPacient());
+            }
+            catch (Exception ex)
+            {
+                ClassF.ErrorClass.MessageForUser(ex.Message);
+            }
+        } //ПЕРЕХОД на страницу добавления пациента
         private void BtnBiomaterial_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -97,15 +118,12 @@ namespace TaskMasterMobilePolivanov.PageF
             catch (Exception ex)
             {
                 ClassF.ErrorClass.MessageForUser(ex.Message);
-                throw;
             }
-        }
-
+        } //ДОБАВЛЕНИЕ биоматериала в базу данных
         private void TbBarcode_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
-                
                 TbBarcode.PreviewTextInput += new TextCompositionEventHandler(textBox_PreviewTextInput);
                 if (TbBarcode.Text.Length == 7 && !TbBarcode.Text.Contains(" "))
                 {
@@ -124,7 +142,7 @@ namespace TaskMasterMobilePolivanov.PageF
                                 var proverka = ClassF.databaseClass.DBCl.OrderInfo.FirstOrDefault(x => x.Barcode.ToString() == TbBarcode.Text);
                                 if (proverka == null)
                                 {
-                                    MessageBox.Show("Код сгенерирована!", "Успех");
+                                    ClassF.ErrorClass.ToolTipMessage("Успех! Код сгенерирована!");
                                     i = 2;
                                 }
                             }
@@ -141,17 +159,21 @@ namespace TaskMasterMobilePolivanov.PageF
             catch (Exception ex)
             {
                 ClassF.ErrorClass.MessageForUser(ex.Message);
-                throw;
             }
-            
-        }
-
+        } //БАРКОД
         public void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!Char.IsDigit(e.Text, 0))
+            try
             {
-                e.Handled = true;
-            } 
-        }
+                if (!Char.IsDigit(e.Text, 0))
+                {
+                    e.Handled = true;
+                } 
+            }
+            catch (Exception ex)
+            {
+                ClassF.ErrorClass.MessageForUser(ex.Message);
+            }
+        }//МЕТОД для проверки на цифры
     }
 }

@@ -23,25 +23,42 @@ namespace TaskMasterMobilePolivanov.PageF
         public InfoUser()
         {
             InitializeComponent();
-
-            DataUser.ItemsSource = ClassF.databaseClass.DBCl.UserLab.ToList();
-        }
-
+            try
+            {
+                DataUser.ItemsSource = ClassF.databaseClass.DBCl.UserLab.ToList();
+            }
+            catch (Exception ex)
+            {
+                ClassF.ErrorClass.MessageForUser(ex.Message);
+            }
+        } //ИНИЦИАЛИЗАЦИЯ
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            try
+            {
+                ClassF.FrmPageClass.frm.Navigate(new LoadPage(new LoginP()));
+            }
+            catch (Exception ex)
+            {
+                ClassF.ErrorClass.MessageForUser(ex.Message);
+            }
             //var userLabs = ClassF.databaseClass.DBCl.UserLab;
             //foreach (var userLab in userLabs)
             //{
             //    userLab.Attempt = true;
             //}
             //ClassF.databaseClass.DBCl.SaveChanges();
-            ClassF.FrmPageClass.frm.Navigate(new LoadPage(new LoginP()));
-        }
-
+        }//ПЕРЕХОД НАЗАД
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            DataUser.ItemsSource = ClassF.databaseClass.DBCl.UserLab.Where(x => x.Login.Contains(TbSearch.Text)).ToList();
-        }
+            try
+            {
+                DataUser.ItemsSource = ClassF.databaseClass.DBCl.UserLab.Where(x => x.Login.Contains(TbSearch.Text)).ToList();
+            }
+            catch (Exception ex)
+            {
+                ClassF.ErrorClass.MessageForUser(ex.Message);
+            }
+        } //ПОИСК
     }
 }

@@ -20,16 +20,23 @@ namespace TaskMasterMobilePolivanov.PageF
     /// </summary>
     public partial class ErrorWindow : Window
     {
+        #region ПЕРЕМЕННЫЕ
         public DispatcherTimer timer = new DispatcherTimer();
         public int timeS { get; set; } = 0;
+        #endregion
         public ErrorWindow(string messegeex)
         {
             InitializeComponent();
-
-            TblErrorMessage.Text = messegeex;
-            TimerLoad();
-        }
-
+            try
+            {
+                TblErrorMessage.Text = messegeex;
+                TimerLoad();
+            }
+            catch (Exception ex)
+            {
+                ClassF.ErrorClass.MessageForUser(ex.Message);
+            }
+        }//ИНИЦИАЛИЗАЦИЯ 
         public void TimerLoad()
         {
             try
@@ -40,10 +47,9 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
-
+        } //МЕТОД ВРЕМЕНИТ тикает каждую милисекунду
         private async void timer_tick(object sender, EventArgs e)
         {
             try
@@ -68,20 +74,32 @@ namespace TaskMasterMobilePolivanov.PageF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "..::Error::..");
+                ClassF.ErrorClass.MessageForUser(ex.Message);
             }
-        }
-
+        } //МЕТОД ВРЕМЕНИ который срабатывает каждую миллесекунду
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            timer.Stop();
-            timer = new DispatcherTimer();
-            this.Close();
-        }
-
+            try
+            {
+                timer.Stop();
+                timer = new DispatcherTimer();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                ClassF.ErrorClass.MessageForUser(ex.Message);
+            }
+        } //КНОПКА ЗАКРЫТИЕ ОКНА
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
-        }
+            try
+            {
+                this.DragMove();
+            }
+            catch (Exception ex)
+            {
+                ClassF.ErrorClass.MessageForUser(ex.Message);
+            }
+        } //ПЕРМЕЩЕНИЕ ОКНА
     }
 }
